@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//mx1117.com">
-  <title>Coder Not Cute</title>
+  <title>NEC协议红外接收之stm8s103f3p6 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Coder Not Cute">
-<meta property="og:url" content="//mx1117.com/index.html">
+  <meta name="description" content="单片机采用stm8s103f3p6,引脚接至 PB4。">
+<meta name="keywords" content="stm8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NEC协议红外接收之stm8s103f3p6">
+<meta property="og:url" content="//mx1117.com/2017/08/10/NEC协议红外接收之stm8s103f3p6/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
+<meta property="og:description" content="单片机采用stm8s103f3p6,引脚接至 PB4。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-06-02T06:01:11.876Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coder Not Cute">
+<meta name="twitter:title" content="NEC协议红外接收之stm8s103f3p6">
+<meta name="twitter:description" content="单片机采用stm8s103f3p6,引脚接至 PB4。">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -142,16 +147,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-NEC协议红外接收之stm8s103f3p6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-NEC协议红外接收之stm8s103f3p6" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/NEC协议红外接收之stm8s103f3p6/">NEC协议红外接收之stm8s103f3p6</a>
+    <h1 class="article-title" itemprop="name">
+      NEC协议红外接收之stm8s103f3p6
     </h1>
   
 
@@ -164,12 +167,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>单片机采用stm8s103f3p6,引脚接至 PB4。<br>
-        
-          <a class="article-more-a" href="/2017/08/10/NEC协议红外接收之stm8s103f3p6/#more">more >></a>
-        
+        <p>单片机采用stm8s103f3p6,引脚接至 PB4。<br><a id="more"></a><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">#include “stm8s.h”</span></span><br><span class="line"><span class="section">#include “delay.h”</span></span><br><span class="line">/<span class="bullet">* Private defines ———————————————————–*</span>/</span><br><span class="line">/<span class="bullet">* Private function prototypes ———————————————–*</span>/</span><br><span class="line">/<span class="bullet">* Private functions ———————————————————*</span>/</span><br><span class="line">/*</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*</span><br><span class="line"><span class="bullet">* </span>模块名称 : 红外遥控解码</span><br><span class="line">*</span><br><span class="line">引导码 地址第一位 地址第二位 数据码 数据反码</span><br><span class="line">字符”S”=0x53 字符”Z”=0x5A</span><br><span class="line">\ 9+4.5ms \ c0-c07 \ c0-c07 \ c0-c07 \ c0-c07 \</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line"><span class="section">#define REMOTE_ID 1     //红外遥控识别码(ID)</span></span><br><span class="line"></span><br><span class="line">u8  Ir_Status=0;              //红外接收处理状态</span><br><span class="line">u8  Ir<span class="emphasis">_Receive_</span>Count=0;       //红外接收数据位计数</span><br><span class="line">u32 Ir<span class="emphasis">_Receive_</span>Data=0;        //32位的红外接收数据</span><br><span class="line">u8  Ir<span class="emphasis">_receive_</span>ok=0;          //红外接收完成标志</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">定时器初始化</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">void TIM2_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">  TIM2_DeInit();</span><br><span class="line">  TIM2<span class="emphasis">_TimeBaseInit(TIM2_</span>PRESCALER_16, 50000);//定时器设置1M的计数频率，1US的分辨率 ,计时50ms</span><br><span class="line">  TIM2<span class="emphasis">_ClearFlag(TIM2_</span>FLAG_UPDATE);</span><br><span class="line">  TIM2<span class="emphasis">_ITConfig(TIM2_</span>IT_UPDATE, DISABLE);//关闭更新中断，只调用查询函数。</span><br><span class="line">  TIM2_Cmd(ENABLE);</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">外部中断初始化</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">void EXTIB_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">  disableInterrupts();</span><br><span class="line">  EXTI<span class="emphasis">_SetExtIntSensitivity(EXTI_</span>PORT<span class="emphasis">_GPIOB, EXTI_</span>SENSITIVITY<span class="emphasis">_FALL_</span>ONLY);//下降沿中断</span><br><span class="line">  enableInterrupts();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">红外解码初始化函数</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*/</span><br><span class="line">void Ir_Init(void)</span><br><span class="line">&#123;</span><br><span class="line">  GPIO<span class="emphasis">_Init(RED_</span>RECEIVE<span class="emphasis">_PORT, GPIO_</span>MODE<span class="emphasis">_IN_</span>PU_IT);   //红外端口PB4初始化</span><br><span class="line">  EXTIB_Config();</span><br><span class="line">  TIM2_Config();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/*</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">红外接收数据处理函数</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">u8 Ir_Process(void)</span><br><span class="line">&#123;</span><br><span class="line">  u8 Ir_num=0;                  //最终处理后的键值返回值</span><br><span class="line">  u8 Address<span class="emphasis">_H,Address_</span>L;       //地址码,地址反码</span><br><span class="line">  u8 Data<span class="emphasis">_H,Data_</span>L;             //数据码,数据反码</span><br><span class="line">  </span><br><span class="line">  if(Ir<span class="emphasis">_receive_</span>ok==1)          //接收完成</span><br><span class="line">  &#123;</span><br><span class="line"><span class="code">    Address_H=Ir_Receive_Data&gt;&gt;24;                //得到地址码第一位</span></span><br><span class="line"><span class="code">    Address_L=(Ir_Receive_Data&gt;&gt;16)&amp;0xff;         //得到地址码第二位 </span></span><br><span class="line"><span class="code">    if((Address_H==0x53)&amp;&amp;(Address_L==0x5A))</span></span><br><span class="line"><span class="code">    //检验遥控识别码(地址一Address_H = 'S'即0x53,地址二Address_L = 'Z') </span></span><br><span class="line"><span class="code">    &#123; </span></span><br><span class="line"><span class="code">      Data_H=Ir_Receive_Data&gt;&gt;8;              //得到数据码</span></span><br><span class="line"><span class="code">      Data_L=Ir_Receive_Data;                 //得到数据反码</span></span><br><span class="line"><span class="code">      if(Data_H==(u8)~Data_L)                 //接收数据码正确</span></span><br><span class="line"><span class="code">      &#123;</span></span><br><span class="line"><span class="code">        Ir_num=Data_H;                      //正确键值</span></span><br><span class="line"><span class="code">        </span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">    &#125;    </span></span><br><span class="line">  &#125;</span><br><span class="line">  return  Ir_num;      //返回键值</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">红外接收中断处理函数</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">void Ir<span class="emphasis">_Receive_</span>Handle(void)</span><br><span class="line">&#123;</span><br><span class="line">  u16 Interval_tim=0;//两个下降沿间隔时间 </span><br><span class="line">  switch(Ir_Status)</span><br><span class="line">  &#123;</span><br><span class="line">  case 0://第一个下降沿，定时器开始计数                    </span><br><span class="line"><span class="code">    Ir_Status=1;</span></span><br><span class="line"> </span><br><span class="line"><span class="code">    TIM2_SetCounter(0);                 //定时器计数值清零</span></span><br><span class="line"><span class="code">    break;</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line">  case 1://第二个下降沿，定时器关闭，读取定时器计数值                                              </span><br><span class="line"><span class="code">    </span></span><br><span class="line"></span><br><span class="line"><span class="code">    Interval_tim=TIM2_GetCounter();     //读取定时器计数值</span></span><br><span class="line"><span class="code">    TIM2_SetCounter(0);                 //定时器计数值清零</span></span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="code">    if( (Interval_tim&gt;=12500)&amp;&amp;(Interval_tim&lt;=14500) )//判断引导码是否正确9+4.5ms &#123; Ir_Status=2; //进入下一状态 &#125; else //引导码错误，从新接收 &#123; Ir_Status=0; Ir_Receive_Count=0; &#125; break; case 2://开始32位数据的接收 Interval_tim=TIM2_GetCounter(); if( (Interval_tim&gt;=1000)&amp;&amp;(Interval_tim&lt;=1300) ) //间隔1.12ms -&gt;0</span></span><br><span class="line"><span class="code">    &#123;</span></span><br><span class="line"><span class="code">      Ir_Receive_Data=Ir_Receive_Data&lt;&lt;1; Ir_Receive_Count++; &#125; else if( (Interval_tim&gt;=2000)&amp;&amp;(Interval_tim&lt;=2600) ) //间隔2.25ms -&gt;1</span></span><br><span class="line"><span class="code">    &#123;</span></span><br><span class="line"><span class="code">      Ir_Receive_Data=Ir_Receive_Data&lt;&lt;1;</span></span><br><span class="line"><span class="code">      Ir_Receive_Data=Ir_Receive_Data|0x0001;</span></span><br><span class="line"><span class="code">      Ir_Receive_Count++;</span></span><br><span class="line"><span class="code">      </span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    else//不是0,1 接收错误，从新接收</span></span><br><span class="line"><span class="code">    &#123;</span></span><br><span class="line"><span class="code">      Ir_Status=0;</span></span><br><span class="line"><span class="code">      Ir_Receive_Data=0;</span></span><br><span class="line"><span class="code">      Ir_Receive_Count=0;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    //超出接收数据位数，接收下一个</span></span><br><span class="line"><span class="code">    while(Ir_Receive_Count==32)</span></span><br><span class="line"><span class="code">    &#123;         </span></span><br><span class="line"><span class="code">      Ir_receive_ok=1;//红外接收完成</span></span><br><span class="line"><span class="code">      Ir_Status=0;</span></span><br><span class="line"><span class="code">      Ir_Receive_Count=0;</span></span><br><span class="line"><span class="code">      enableInterrupts();//接收完成，打开中断，避免在接收过程中受其他中断影响。</span></span><br><span class="line"><span class="code">      break;</span></span><br><span class="line"><span class="code">    &#125; </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    TIM2_SetCounter(0);//从零开始计数</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    break;</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line">  default :</span><br><span class="line"><span class="code">    TIM2_SetCounter(0);//从零开始计数</span></span><br><span class="line"><span class="code">    break;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">/*</span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line"><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span></span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">//当红外接收到信号进入中断，运行定时器执行程序，红外未收到信号空闲时无中断定时器关闭</span><br><span class="line"></span><br><span class="line">void main(void)</span><br><span class="line">&#123; </span><br><span class="line">  CLK<span class="emphasis">_HSIPrescalerConfig(CLK_</span>PRESCALER_HSIDIV1);</span><br><span class="line">  CLK_HSICmd(ENABLE);</span><br><span class="line">  </span><br><span class="line">  uint8<span class="emphasis">_t key_</span>val;</span><br><span class="line">  Ir_Init();</span><br><span class="line">  </span><br><span class="line">  u8 test_val=(0x53&amp;0x4F&amp;0x5A&amp;0x4f&amp;0x53);</span><br><span class="line">  if(test_val)&#123;&#125;</span><br><span class="line">  </span><br><span class="line">  while(1)  </span><br><span class="line">  &#123;</span><br><span class="line"><span class="code">    if( Ir_receive_ok == 1 ) //一帧红外数据接收完成 </span></span><br><span class="line"><span class="code">    &#123;</span></span><br><span class="line"><span class="code">      key_val = Ir_Process();</span></span><br><span class="line"><span class="code">      Ir_receive_ok=0;</span></span><br><span class="line"><span class="code">      </span></span><br><span class="line"><span class="code">      //不同的遥控器面板对应不同的键值 0-9</span></span><br><span class="line"><span class="code">      switch( key_val )</span></span><br><span class="line"><span class="code">      &#123;                                                </span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">      Ir_Receive_Data=0;//清空接收数据</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>*/</span><br><span class="line">INTERRUPT<span class="emphasis">_HANDLER(EXTI_</span>PORTB_IRQHandler, 4)</span><br><span class="line">&#123;</span><br><span class="line">  /* In order to detect unexpected events during development,</span><br><span class="line">  it is recommended to set a breakpoint on the following instruction.</span><br><span class="line">  */</span><br><span class="line">  </span><br><span class="line">  disableInterrupts();</span><br><span class="line">  Ir<span class="emphasis">_Receive_</span>Handle(); </span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -189,16 +221,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/NEC协议红外接收之stm8s103f3p6/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/2017/08/10/NEC协议红外接收之stm8s103f3p6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/07/15/stm8s之NEC协议红外发射/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">stm8s之NEC协议红外发射</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -218,248 +309,19 @@
 
 
 
-<!-- 目录内容 -->
-	     
-<!-- 目录内容结束 -->
   
-    <article id="post-stm8s之NEC协议红外发射" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/15/stm8s之NEC协议红外发射/">stm8s之NEC协议红外发射</a>
-    </h1>
   
 
-        
-        <a href="/2017/07/15/stm8s之NEC协议红外发射/" class="archive-article-date">
-  	<time datetime="2017-07-15T04:49:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。<br>
-        
-          <a class="article-more-a" href="/2017/07/15/stm8s之NEC协议红外发射/#more">more >></a>
-        
-      
+  
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">stm8</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
 
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/15/stm8s之NEC协议红外发射/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
+  
 
 <!-- 目录内容 -->
 	     
 <!-- 目录内容结束 -->
-  
-    <article id="post-stm8矩阵键盘扫描程序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/13/stm8矩阵键盘扫描程序/">stm8矩阵键盘扫描程序</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/13/stm8矩阵键盘扫描程序/" class="archive-article-date">
-  	<time datetime="2017-07-12T16:49:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>按键通常有：IO口按键（BUTTON)，AD按键（通过AD采样电压），IR（遥控器）<br>按按键功能分：有短按键，长按键，连续按键。打个比方，遥控电视机，按一下音量键，音量增加1，这个就是短按键。按住音量键不放，音量连续加，这个就是连续按键。按住一个按键5s,系统会复位，这个是长按键。<br>
-        
-          <a class="article-more-a" href="/2017/07/13/stm8矩阵键盘扫描程序/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">stm8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/13/stm8矩阵键盘扫描程序/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-<!-- 目录内容 -->
-	     
-<!-- 目录内容结束 -->
-  
-    <article id="post-HelloEveryone" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/1899/11/30/HelloEveryone/">HelloEveryone</a>
-    </h1>
-  
-
-        
-        <a href="/1899/11/30/HelloEveryone/" class="archive-article-date">
-  	<time datetime="1899-11-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1899-11-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>这是一个斜体测试</em></p>
-<p><em>这是一个斜体测试</em></p>
-        
-          <a class="article-more-a" href="/1899/11/30/HelloEveryone/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/1899/11/30/HelloEveryone/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-<!-- 目录内容 -->
-	     
-<!-- 目录内容结束 -->
-  
-  
-
-
           </div>
         </div>
       </div>
@@ -476,8 +338,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
