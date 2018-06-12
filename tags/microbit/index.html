@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//mx1117.com">
-  <title>vps centos ss 配置 | Coder Not Cute</title>
+  <title>Tag: microbit | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先需要安装python和shadowcocks">
-<meta name="keywords" content="vps,ss">
-<meta property="og:type" content="article">
-<meta property="og:title" content="vps centos ss 配置">
-<meta property="og:url" content="//mx1117.com/2016-10-13-vps_ss/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Coder Not Cute">
+<meta property="og:url" content="//mx1117.com/tags/microbit/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
-<meta property="og:description" content="首先需要安装python和shadowcocks">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-12T04:20:31.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vps centos ss 配置">
-<meta name="twitter:description" content="首先需要安装python和shadowcocks">
+<meta name="twitter:title" content="Coder Not Cute">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -147,242 +142,62 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vps_ss" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      vps centos ss 配置
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/20171112_microbit_snake/" class="archive-article-date">
+  	<time datetime="2017-11-12T07:06:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/20171112_microbit_snake/">microbit的贪吃蛇</a>
     </h1>
   
 
-        
-        <a href="/2016-10-13-vps_ss/" class="archive-article-date">
-  	<time datetime="2016-10-13T14:49:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="首先需要安装python和shadowcocks"><a href="#首先需要安装python和shadowcocks" class="headerlink" title="首先需要安装python和shadowcocks"></a>首先需要安装python和shadowcocks</h2><a id="more"></a>
-<p>yum install python-setuptools &amp;&amp; easy_install pip</p>
-<p>pip install shadowsocks</p>
-<h2 id="对SS进行配置："><a href="#对SS进行配置：" class="headerlink" title="对SS进行配置："></a>对SS进行配置：</h2><p>vi /etc/shadowsocks.json</p>
-<p>{<br>  “server”:”0.0.0.0”,<br>  “local_address”:”127.0.0.1”,<br>  “local_port”:1080,<br>  “port_password”:{<br>    “你打算的端口号1”:”端口号1对应的密码”,<br>    “你打算的端口号2”:”端口号2对应的密码”,<br>    “你打算的端口号3”:”端口号3对应的密码”<br>  },<br>  “timeout”:600,<br>  “method”:”chacha20”<br>}</p>
-<h2 id="配置自启动"><a href="#配置自启动" class="headerlink" title="配置自启动"></a>配置自启动</h2><p>centos6<br>echo “ssserver -c /etc/shadowsocks.json -d start” &gt;&gt; /etc/rc.d/rc.local</p>
-<p>centos7<br>新建启动脚本文件vi /etc/systemd/system/shadowsocks.service，内容如下：</p>
-<p>[Unit]<br>Description=Shadowsocks<br>[Service]<br>TimeoutStartSec=0<br>ExecStart=/usr/bin/ssserver -c /etc/shadowsocks.json<br>[Install]<br>WantedBy=multi-user.target</p>
-<h2 id="执行以下命令启动-shadowsocks-服务："><a href="#执行以下命令启动-shadowsocks-服务：" class="headerlink" title="执行以下命令启动 shadowsocks 服务："></a>执行以下命令启动 shadowsocks 服务：</h2><p>$ systemctl enable shadowsocks<br>$ systemctl start shadowsocks</p>
-<p>为了检查 shadowsocks 服务是否已成功启动，可以执行以下命令查看服务的状态：<br>$ systemctl status shadowsocks -l</p>
-<h2 id="chacha20算法开启"><a href="#chacha20算法开启" class="headerlink" title="chacha20算法开启"></a>chacha20算法开启</h2><p>yum install m2crypto gcc -y<br>wget -N –no-check-certificate <a href="https://download.libsodium.org/libsodium/releases/LATEST.tar.gz" target="_blank" rel="noopener">https://download.libsodium.org/libsodium/releases/LATEST.tar.gz</a><br>tar zfvx LATEST.tar.gz<br>cd libsodium-1.0.16<br>./configure<br>make &amp;&amp; make install<br>echo “include ld.so.conf.d/*.conf” &gt; /etc/ld.so.conf<br>echo “/lib” &gt;&gt; /etc/ld.so.conf<br>echo “/usr/lib64” &gt;&gt; /etc/ld.so.conf<br>echo “/usr/local/lib” &gt;&gt; /etc/ld.so.conf<br>ldconfig</p>
-<h2 id="BBR加速安装"><a href="#BBR加速安装" class="headerlink" title="BBR加速安装"></a>BBR加速安装</h2><p>wget –no-check-certificate <a href="https://github.com/teddysun/across/raw/master/bbr.sh" target="_blank" rel="noopener">https://github.com/teddysun/across/raw/master/bbr.sh</a><br>chmod +x bbr.sh<br>./bbr.sh<br>tar cvf - / &gt; /BackUp/20170716.tar</p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/wechat.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ss</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">microbit</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/2016-10-13-vps_ss/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2017-07-13-stm8KEYS/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          stm8矩阵键盘扫描程序
-        
-      </div>
-    </a>
   
   
-    <a href="/1899-11-30-HelloEveryone/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HelloEveryone</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#首先需要安装python和shadowcocks"><span class="toc-number">1.</span> <span class="toc-text">首先需要安装python和shadowcocks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对SS进行配置："><span class="toc-number">2.</span> <span class="toc-text">对SS进行配置：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置自启动"><span class="toc-number">3.</span> <span class="toc-text">配置自启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行以下命令启动-shadowsocks-服务："><span class="toc-number">4.</span> <span class="toc-text">执行以下命令启动 shadowsocks 服务：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chacha20算法开启"><span class="toc-number">5.</span> <span class="toc-text">chacha20算法开启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BBR加速安装"><span class="toc-number">6.</span> <span class="toc-text">BBR加速安装</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
+    
 
-  
 
-  
-
-<!-- 目录内容 -->
-	
-		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#首先需要安装python和shadowcocks"><span class="toc-number">1.</span> <span class="toc-text">首先需要安装python和shadowcocks</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对SS进行配置："><span class="toc-number">2.</span> <span class="toc-text">对SS进行配置：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置自启动"><span class="toc-number">3.</span> <span class="toc-text">配置自启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行以下命令启动-shadowsocks-服务："><span class="toc-number">4.</span> <span class="toc-text">执行以下命令启动 shadowsocks 服务：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#chacha20算法开启"><span class="toc-number">5.</span> <span class="toc-text">chacha20算法开启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BBR加速安装"><span class="toc-number">6.</span> <span class="toc-text">BBR加速安装</span></a></li></ol>
-           </div>
-	   <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-		</script>
-	     
-<!-- 目录内容结束 -->
           </div>
         </div>
       </div>
@@ -400,9 +215,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -466,23 +281,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单片机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">stm8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -491,6 +290,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单片机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">stm8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
             
             <div class="clearfix"></div>

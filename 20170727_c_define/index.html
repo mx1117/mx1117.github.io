@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//mx1117.com">
-  <title>stm8s之NEC协议红外发射 | Coder Not Cute</title>
+  <title>c语言define用法.md | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
-<meta name="keywords" content="单片机,stm8">
+  <meta name="description" content="1.简单的宏定义#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）">
+<meta name="keywords" content="c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stm8s之NEC协议红外发射">
-<meta property="og:url" content="//mx1117.com/2017-07-15-NECOUT/index.html">
+<meta property="og:title" content="c语言define用法.md">
+<meta property="og:url" content="//mx1117.com/20170727_c_define/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
-<meta property="og:description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
+<meta property="og:description" content="1.简单的宏定义#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-02T11:52:53.733Z">
+<meta property="og:updated_time" content="2018-06-12T05:47:39.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stm8s之NEC协议红外发射">
-<meta name="twitter:description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
+<meta name="twitter:title" content="c语言define用法.md">
+<meta name="twitter:description" content="1.简单的宏定义#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -147,27 +147,51 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-NECOUT" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-20170727_c_define" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      stm8s之NEC协议红外发射
+      c语言define用法.md
     </h1>
   
 
         
-        <a href="/2017-07-15-NECOUT/" class="archive-article-date">
-  	<time datetime="2017-07-15T04:49:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
+        <a href="/20170727_c_define/" class="archive-article-date">
+  	<time datetime="2017-07-27T04:55:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。<br><a id="more"></a><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>                              </span><br><span class="line">//introduce:        红外传感器发送驱动        </span><br><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>     </span><br><span class="line"><span class="section">#include "stm8s.h"   </span></span><br><span class="line"><span class="section">#include "delay.h"</span></span><br><span class="line"></span><br><span class="line">/<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">*外部变量*</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>/    </span><br><span class="line">static void TIM1_Config(void);</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  CLK<span class="emphasis">_HSIPrescalerConfig(CLK_</span>PRESCALER_HSIDIV1);</span><br><span class="line">  CLK_HSICmd(ENABLE);</span><br><span class="line">  delay_init(16);</span><br><span class="line">  u32 Send_Val=0x535A00FF;</span><br><span class="line">  u8 i;  </span><br><span class="line">  GPIO<span class="emphasis">_Init(SZ_</span>INFRARED<span class="emphasis">_SEND_</span>PORT, GPIO<span class="emphasis">_MODE_</span>OUT<span class="emphasis">_PP_</span>HIGH_FAST);</span><br><span class="line">  TIM1_Config();</span><br><span class="line">  while(1)&#123;</span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(421);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    delay_ms(9);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(4);</span></span><br><span class="line"><span class="code">    delay_us(500);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    for(i=0;i&lt;32;i++)&#123;</span></span><br><span class="line"><span class="code">      if((0x80000000&gt;&gt;i)&amp;Send_Val)&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(1690);</span></span><br><span class="line"><span class="code">      &#125;else&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">    delay_ms(1);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(1000);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">定时器配置PWM如下：</span><br><span class="line"></span><br><span class="line">static void TIM1_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">  </span><br><span class="line">  TIM2_DeInit();</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_TimeBaseInit(TIM2_</span>PRESCALER_1, 421);</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_OC3Init(TIM2_</span>OCMODE<span class="emphasis">_PWM1, TIM2_</span>OUTPUTSTATE<span class="emphasis">_DISABLE, 0, TIM2_</span>OCPOLARITY_HIGH);</span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_CCxCmd(TIM2_</span>CHANNEL_3, ENABLE);</span><br><span class="line">  TIM2_Cmd(ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h1 id="1-简单的宏定义"><a href="#1-简单的宏定义" class="headerlink" title="1.简单的宏定义"></a>1.简单的宏定义</h1><p>#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）<br><a id="more"></a><br>典型错误：</p>
+<p>#define N = 100<br>int a[N]; /<em>这样会成为int a[= 100],这里会处理成为一种标识记号一样</em>/</p>
+<p>#define N 100;<br>int a[N]; /<em>带分号的定义会成为int a[100;],这是一种很常见的错误</em>/</p>
+<p>#define pin (int<em>);<br>pin a,b;<br>int</em> a,b; /<em>本意是a和b都是int型指针，但是实际上变成int</em> a,b;a是int型指针，而b是int型变量。这是应该使用typedef来代替define，这样a和b就都是int型指针了。*/<br>典型的使用方法：<br>使用宏定义我们可以自己根据自己的习惯来定义甚至改变C语言的语法习惯，例如：</p>
+<p>#define BEGIN {</p>
+<p>#define END }<br>int main()BEGIN<br>printf (“DEFINE—-\n”);<br>END<br>定义一个循环</p>
+<p>#define LOOP for(;;)<br>重新定义数据类型</p>
+<p>#define IT int</p>
+<h1 id="2-带参数的宏"><a href="#2-带参数的宏" class="headerlink" title="2.带参数的宏"></a>2.带参数的宏</h1><p>#define 标识符（x1,x2,x3…xn） 替换列表  （注意：x1,x2,x3..是宏的参数，标识符和其左括弧之间不能有空格）<br>使用方法：</p>
+<p>#define MAX(x,y) ((x)&gt;(y)?(x):(y))<br>i=MAX(j+k,m-n);<br>替换为：<br>i=MAX((j+k)&gt;(m-n)?(j+k):(m-n));</p>
+<p>#define SI_EX(n) ((n)%2==0)<br>if(SI_EX(i)) i++;<br>替换为：<br>if(SI_EX((i)%2==0))<br>通过以上例子我们可以看出，标识符带参数（X1，X2，X3…..）在替换时会被替换列表（Y1，Y2，Y3….）对应的替换，但是和顺序无关。</p>
+<h1 id="3-宏的特殊单行定义"><a href="#3-宏的特殊单行定义" class="headerlink" title="3.宏的特殊单行定义"></a>3.宏的特殊单行定义</h1><p>#define A(x) T_##x</p>
+<p>#define B（x) #@x</p>
+<p>#define C（x) #x<br>x=1<br>替换为：<br>A(1)——&gt; T_1 （T_##x,##符号是记号粘黏符号，将前后的字符粘黏起来。）<br>B(1)——&gt; ‘1’ （ #@x , #@ 符号会将宏的参数进行字符串字面量化，并且加‘’号）<br>C(1)——&gt; “1” （ #x ,#符号会将宏的参数进行字符串字面量化，并且加””号）</p>
+<h1 id="4-define的多行定义"><a href="#4-define的多行定义" class="headerlink" title="4.define的多行定义"></a>4.define的多行定义</h1><p>define可以替代多行的代码，在每一个换行的时候加上一个”\”</p>
+<p>#define MAX(X,Y) do { \<br>语句1; \<br>语句2; \<br>/<em> 注释的写法 </em>/ \<br>} while(0) /<em> (no trailing ; ) </em>/ \</p>
+<p>#5.在大规模的开发过程中，特别是跨平台和系统的软件里，define最重要的功能是条件编译。</p>
+<p>#ifdef WINDOWS<br>……<br>……</p>
+<p>#endif</p>
+<p>#ifdef LINUX<br>……<br>……</p>
+<p>#endif<br>可以在编译的时候通过#define设置编译环境</p>
+<h1 id="6-取消宏"><a href="#6-取消宏" class="headerlink" title="6.取消宏"></a>6.取消宏</h1><p>#undef 标识符</p>
+<h1 id="7-条件编译"><a href="#7-条件编译" class="headerlink" title="7.条件编译"></a>7.条件编译</h1><p>#ifdef XXX…(#else) … #endif</p>
+<h1 id="8-预定义宏"><a href="#8-预定义宏" class="headerlink" title="8.预定义宏"></a>8.预定义宏</h1><p>在C语言中收录了一些有用的宏，这些宏是提供当前编译信息的。<br><strong>LINE</strong>        被编译文件的行数<br>（整型）<br><strong>FILE</strong>  被编译文件的名字 （字符型）<br><strong>DATE</strong>  编译日期 （字符型）<br><strong>TIME</strong>  编译时间 （字符型）<br><strong>STDC</strong>  如果编译器接受标准C，那么值为1. （整型）<br>通常我们在编译的时候我们可以用这些预定义的宏来进行排错，例如：<br>一般情况下，当出现除零的情况时编译器是没有提示的，我们可以自定义一个解决办法。</p>
+<p>#define CHECKZERO(divisor)\<br>if(divisor==0)\<br>printf(“<strong><em>ATTEMPT TO DIVIDE BY ZERO IN LINE %d of file %s </em></strong>\n”,<strong>LINE</strong>,<strong>FILE</strong>);\<br>引用方法<br>CHECKZERO(j);<br>k=i/j;</p>
 
       
 
@@ -212,11 +236,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单片机</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">stm8</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">c</a>
         		</li>
       		
 		</ul>
@@ -272,7 +292,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/2017-07-15-NECOUT/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/20170727_c_define/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +306,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017-07-27-c_define/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/20170728_FSM_Learning1/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          c语言define用法.md
+          [FSM]状态机实践入门
         
       </div>
     </a>
   
   
-    <a href="/2017-07-13-stm8KEYS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">stm8矩阵键盘扫描程序</div>
+    <a href="/20170715_NECOUT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">stm8s之NEC协议红外发射</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -317,6 +337,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-简单的宏定义"><span class="toc-number">1.</span> <span class="toc-text">1.简单的宏定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-带参数的宏"><span class="toc-number">2.</span> <span class="toc-text">2.带参数的宏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-宏的特殊单行定义"><span class="toc-number">3.</span> <span class="toc-text">3.宏的特殊单行定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-define的多行定义"><span class="toc-number">4.</span> <span class="toc-text">4.define的多行定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-取消宏"><span class="toc-number">5.</span> <span class="toc-text">6.取消宏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-条件编译"><span class="toc-number">6.</span> <span class="toc-text">7.条件编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-预定义宏"><span class="toc-number">7.</span> <span class="toc-text">8.预定义宏</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -333,6 +366,30 @@
   
 
 <!-- 目录内容 -->
+	
+		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-简单的宏定义"><span class="toc-number">1.</span> <span class="toc-text">1.简单的宏定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-带参数的宏"><span class="toc-number">2.</span> <span class="toc-text">2.带参数的宏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-宏的特殊单行定义"><span class="toc-number">3.</span> <span class="toc-text">3.宏的特殊单行定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-define的多行定义"><span class="toc-number">4.</span> <span class="toc-text">4.define的多行定义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-取消宏"><span class="toc-number">5.</span> <span class="toc-text">6.取消宏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-条件编译"><span class="toc-number">6.</span> <span class="toc-text">7.条件编译</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-预定义宏"><span class="toc-number">7.</span> <span class="toc-text">8.预定义宏</span></a></li></ol>
+           </div>
+	   <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+		</script>
 	     
 <!-- 目录内容结束 -->
           </div>
@@ -418,23 +475,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单片机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">stm8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">FSM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -443,6 +484,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ss</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">单片机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">stm8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">FSM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
             
             <div class="clearfix"></div>
