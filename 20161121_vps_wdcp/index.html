@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="//mx1117.com">
   <title>vps centos7 wdcp安装出错解决方案 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装wdcp3.1，编译安装时，报出错误make: *** [ext/fileinfo/libmagic/apprentice.lo] Error">
-<meta name="keywords" content="vps,ss">
+  <meta name="description" content="在设置VPS网络服务器环境的时候，有一种便捷的方法就是使用开发的vps控制面板，">
+<meta name="keywords" content="vps">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vps centos7 wdcp安装出错解决方案">
 <meta property="og:url" content="//mx1117.com/20161121_vps_wdcp/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
-<meta property="og:description" content="安装wdcp3.1，编译安装时，报出错误make: *** [ext/fileinfo/libmagic/apprentice.lo] Error">
+<meta property="og:description" content="在设置VPS网络服务器环境的时候，有一种便捷的方法就是使用开发的vps控制面板，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-12T14:32:25.361Z">
+<meta property="og:updated_time" content="2018-06-15T00:54:43.314Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vps centos7 wdcp安装出错解决方案">
-<meta name="twitter:description" content="安装wdcp3.1，编译安装时，报出错误make: *** [ext/fileinfo/libmagic/apprentice.lo] Error">
+<meta name="twitter:description" content="在设置VPS网络服务器环境的时候，有一种便捷的方法就是使用开发的vps控制面板，">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -167,7 +167,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="安装wdcp3-1，编译安装时，报出错误make-ext-fileinfo-libmagic-apprentice-lo-Error"><a href="#安装wdcp3-1，编译安装时，报出错误make-ext-fileinfo-libmagic-apprentice-lo-Error" class="headerlink" title="安装wdcp3.1，编译安装时，报出错误make: *** [ext/fileinfo/libmagic/apprentice.lo] Error"></a>安装wdcp3.1，编译安装时，报出错误make: *** [ext/fileinfo/libmagic/apprentice.lo] Error</h2><a id="more"></a>
+        <h2 id="在设置VPS网络服务器环境的时候，有一种便捷的方法就是使用开发的vps控制面板，"><a href="#在设置VPS网络服务器环境的时候，有一种便捷的方法就是使用开发的vps控制面板，" class="headerlink" title="在设置VPS网络服务器环境的时候，有一种便捷的方法就是使用开发的vps控制面板，"></a>在设置VPS网络服务器环境的时候，有一种便捷的方法就是使用开发的vps控制面板，</h2><a id="more"></a>
+<p>博主使用的就是一个免费的国产控制面板wdcp。<br>安装过程中出现了：</p>
+<p>vps安装wdcp3.1，编译安装时，报出错误make: *** [ext/fileinfo/libmagic/apprentice.lo] Error</p>
 <p>原因：服务器内存不足！1G，<br>解决方案：找到php的安装脚本./lib/php.sh,在38行“./configure –prefix=$IN_DIR/$PHP_DIR \”，<br>后面加入，–disable-fileinfo \，重新运行命令“lanmp.sh ”，安装顺利完成。</p>
 
       
@@ -214,10 +216,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ss</a>
         		</li>
       		
 		</ul>
@@ -358,6 +356,16 @@ gitment.render('gitment-ctn')
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
+	<!--统计start-->
+		<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+		</script>
+		<span id="busuanzi_container_site_pv">
+		本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+		<span id="busuanzi_container_site_uv">
+		总访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+	<!--统计end-->
       	<div class="footer-right">
       		&copy; 2018 偶は可不乖呢
       	</div>
