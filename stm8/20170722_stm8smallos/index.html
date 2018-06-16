@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//mx1117.com">
-  <title>stm8s之NEC协议红外发射 | Coder Not Cute</title>
+  <title>stm8任务调度‘最小系统’ | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
+  <meta name="description" content="STM32上有很多可以使用的操作系统，例如ucos,freeRTOS等等。那么STM8呢？">
 <meta name="keywords" content="embed,单片机,stm8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="stm8s之NEC协议红外发射">
-<meta property="og:url" content="//mx1117.com/20170715_NECOUT/index.html">
+<meta property="og:title" content="stm8任务调度‘最小系统’">
+<meta property="og:url" content="//mx1117.com/stm8/20170722_stm8smallos/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
-<meta property="og:description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
+<meta property="og:description" content="STM32上有很多可以使用的操作系统，例如ucos,freeRTOS等等。那么STM8呢？">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2018-06-15T11:21:35.834Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="stm8s之NEC协议红外发射">
-<meta name="twitter:description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
+<meta name="twitter:title" content="stm8任务调度‘最小系统’">
+<meta name="twitter:description" content="STM32上有很多可以使用的操作系统，例如ucos,freeRTOS等等。那么STM8呢？">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -64,9 +64,11 @@
 	        
 				<li><a href="/tags/embed/">嵌入式</a></li>
 	        
-				<li><a href="/tags/vps/">VPS</a></li>
+				<li><a href="/tags/code/">编程之路</a></li>
 	        
-				<li><a href="/tags/share/">资源</a></li>
+				<li><a href="/tags/sources/">常用资源</a></li>
+	        
+				<li><a href="/archives/">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,6 +128,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -144,13 +148,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/embed/">嵌入式</a></li>
+					<li style="width: 20%"><a href="/tags/embed/">嵌入式</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/vps/">VPS</a></li>
+					<li style="width: 20%"><a href="/tags/code/">编程之路</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/share/">资源</a></li>
+					<li style="width: 20%"><a href="/tags/sources/">常用资源</a></li>
+		        
+					<li style="width: 20%"><a href="/archives/">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -165,27 +171,28 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-20170715_NECOUT" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-stm8/20170722_stm8smallos" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      stm8s之NEC协议红外发射
+      stm8任务调度‘最小系统’
     </h1>
   
 
         
-        <a href="/20170715_NECOUT/" class="archive-article-date">
-  	<time datetime="2017-07-15T04:49:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-15</time>
+        <a href="/stm8/20170722_stm8smallos/" class="archive-article-date">
+  	<time datetime="2017-07-22T11:46:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。<br><a id="more"></a><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>                              </span><br><span class="line">//introduce:        红外传感器发送驱动        </span><br><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>     </span><br><span class="line"><span class="section">#include "stm8s.h"   </span></span><br><span class="line"><span class="section">#include "delay.h"</span></span><br><span class="line"></span><br><span class="line">/<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">*外部变量*</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>/    </span><br><span class="line">static void TIM1_Config(void);</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  CLK<span class="emphasis">_HSIPrescalerConfig(CLK_</span>PRESCALER_HSIDIV1);</span><br><span class="line">  CLK_HSICmd(ENABLE);</span><br><span class="line">  delay_init(16);</span><br><span class="line">  u32 Send_Val=0x535A00FF;</span><br><span class="line">  u8 i;  </span><br><span class="line">  GPIO<span class="emphasis">_Init(SZ_</span>INFRARED<span class="emphasis">_SEND_</span>PORT, GPIO<span class="emphasis">_MODE_</span>OUT<span class="emphasis">_PP_</span>HIGH_FAST);</span><br><span class="line">  TIM1_Config();</span><br><span class="line">  while(1)&#123;</span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(421);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    delay_ms(9);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(4);</span></span><br><span class="line"><span class="code">    delay_us(500);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    for(i=0;i&lt;32;i++)&#123;</span></span><br><span class="line"><span class="code">      if((0x80000000&gt;&gt;i)&amp;Send_Val)&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(1690);</span></span><br><span class="line"><span class="code">      &#125;else&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">    delay_ms(1);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(1000);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">定时器配置PWM如下：</span><br><span class="line"></span><br><span class="line">static void TIM1_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">  </span><br><span class="line">  TIM2_DeInit();</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_TimeBaseInit(TIM2_</span>PRESCALER_1, 421);</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_OC3Init(TIM2_</span>OCMODE<span class="emphasis">_PWM1, TIM2_</span>OUTPUTSTATE<span class="emphasis">_DISABLE, 0, TIM2_</span>OCPOLARITY_HIGH);</span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_CCxCmd(TIM2_</span>CHANNEL_3, ENABLE);</span><br><span class="line">  TIM2_Cmd(ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <p>STM32上有很多可以使用的操作系统，例如ucos,freeRTOS等等。那么STM8呢？<br><a id="more"></a><br>STM8是8位机，比起STM32，价格便宜，但是性能衰弱。所以我们没法使用freeRTOS那样大型的操作系统。<br>有人总结出了我们可以利用编译器的相关函数来模拟一个最小系统，也就是所谓的任务调度器。<br>它利用可define关键字在编译器中完全替换的原理，给出了一个非常类似的操作系统。让我们看看他的代码吧：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">include <span class="string">"stm8s.h"</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">/****最小系统开始**********************************************/</span><br><span class="line"><span class="meta">#</span><span class="bash">define MAXTASKS 2U			//定义最大的任务量</span></span><br><span class="line"></span><br><span class="line">extern volatile uint8_t timers[MAXTASKS];</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_task         uint8_t                                           //所有任务用其定义</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_start        static uint8_t _lc=0U; switch(_lc)&#123;<span class="keyword">case</span> 0U:       //所有任务开始之前</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_end          <span class="built_in">break</span>; default:<span class="built_in">break</span>;&#125;  _lc=0U;  <span class="built_in">return</span> 255U;     //所有任务结束之前</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_WaitX(tickets)   _lc=(uint8_t)(__LINE__)%255U+1U;  <span class="keyword">if</span>(_lc)&#123;<span class="built_in">return</span> (tickets);&#125;  <span class="built_in">break</span>; <span class="keyword">case</span> ((uint8_t)(__LINE__)%255U)+1U:  //等待时间 单位时间为中断里定义的系统最小时间</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_Yield()      os_WaitX(0)      //跳出当前任务</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_RunTask(TaskName,TaskID)  <span class="keyword">do</span> &#123;<span class="keyword">if</span> (timers[(TaskID)]==0U)&#123; timers[(TaskID)]=(TaskName)(); &#125; &#125; <span class="keyword">while</span>(0)   //运行任务，在主程序的<span class="keyword">while</span>（1）里调用</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_RunTaskA(TaskName,TaskID) &#123; <span class="keyword">if</span> (timers[(TaskID)]==0U) &#123;timers[(TaskID)]=(TaskName)(); <span class="built_in">continue</span>;&#125; &#125;    //高优先级运行任务</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_CallSub(SubTaskName) <span class="keyword">do</span> &#123;uint8_t currdt; _lc=(uint8_t)(__LINE__)%255U+1U; <span class="keyword">if</span>(_lc) &#123;<span class="built_in">return</span> 0U;&#125; <span class="built_in">break</span>; <span class="keyword">case</span> (uint8_t)(__LINE__)%255U+1U:  currdt=(SubTaskName)(); <span class="keyword">if</span>(currdt!=255U) &#123;<span class="built_in">return</span> currdt;&#125;&#125; <span class="keyword">while</span>(0); //在任务中调用的子任务</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_CallSubWithParam(SubTaskName, param) <span class="keyword">do</span> &#123;uint8_t currdt; _lc=(uint8_t)(__LINE__)%255U+1U; <span class="keyword">if</span>(_lc) &#123;<span class="built_in">return</span> 0U;&#125; <span class="built_in">break</span>; <span class="keyword">case</span> (uint8_t)(__LINE__)%255U+1U:  currdt=(SubTaskName)(param); <span class="keyword">if</span>(currdt!=255U) &#123;<span class="built_in">return</span> currdt;&#125;&#125; <span class="keyword">while</span>(0); //在任务中调用的子任务（带参数）</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_InitTasks() <span class="keyword">do</span> &#123;uint8_t i; <span class="keyword">for</span>(i=MAXTASKS;i&gt;0U ;i--) &#123;timers[i-1U]=0U;&#125; &#125; <span class="keyword">while</span>(0) //初始化任务</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_UpdateTimers() <span class="keyword">do</span> &#123; uint8_t i;  systick++;  <span class="keyword">for</span>(i=MAXTASKS;i&gt;0U ;i--)&#123;  <span class="keyword">if</span>(timers[i-1U]!=0U)&#123;  <span class="keyword">if</span>(timers[i-1U]!=255U) &#123; timers[i-1U]--;&#125;&#125;&#125;&#125; <span class="keyword">while</span>(0) //更新系统时间</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_SEM int16_t //信号量声明</span></span><br><span class="line">/*??????*/</span><br><span class="line"><span class="meta">#</span><span class="bash">define os_InitSem(sem) (sem)=0;  //初始化信号量</span></span><br><span class="line">/*?????*/</span><br><span class="line"><span class="meta">#</span><span class="bash">define os_WaitSem(sem) <span class="keyword">do</span>&#123; (sem)=1; os_WaitX(0); <span class="keyword">if</span> ((sem)&gt;0) <span class="built_in">return</span> 1;&#125; <span class="keyword">while</span>(0); //等待信号量</span></span><br><span class="line">/*???????????, ???tickets ???0xFFFE*/</span><br><span class="line"><span class="meta">#</span><span class="bash">define os_WaitSemX(sem,tickets)  <span class="keyword">do</span> &#123; (sem)=(tickets)+1; os_WaitX(0); <span class="keyword">if</span>((sem)&gt;1)&#123; (sem)--;  <span class="built_in">return</span> 1;&#125; <span class="keyword">else</span>&#123;(sem)=-1;&#125; &#125; <span class="keyword">while</span>(0);  //等待信号量，并有超时时间</span></span><br><span class="line">/*?????*/</span><br><span class="line"><span class="meta">#</span><span class="bash">define os_SendSem(sem)  <span class="keyword">do</span> &#123;(sem)=0;&#125; <span class="keyword">while</span>(0); //发送信号量</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define os_TIMEOUT      (-1) //超时</span></span><br></pre></td></tr></table></figure></p>
+<p>这里还有另一种优化版本，是在不断的使用中更新出的一个版本,不过我没有使用过~~也没太看懂，还是照例放代码吧：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">/****小小调度器开始**********************************************/</span><br><span class="line"><span class="meta">#</span><span class="bash">define TimeDef         unsigned short</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define LineDef         unsigned char</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define END             ((TimeDef)-1)</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define LINE            ((__LINE__%(LineDef)-1)+1)  </span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define me  (*cp)</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define TaskFun(TaskName)     TimeDef TaskName(C_<span class="comment">##TaskName *cp) &#123;switch(me.task.lc)&#123;default:</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">define Exit            <span class="keyword">do</span> &#123; me.task.lc=0; <span class="built_in">return</span> END; &#125;  <span class="keyword">while</span>(0)</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define Restart           <span class="keyword">do</span> &#123; me.task.lc=0; <span class="built_in">return</span> 0; &#125;  <span class="keyword">while</span>(0)</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define EndFun            &#125; Exit; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define WaitX(ticks)      <span class="keyword">do</span> &#123; me.task.lc=LINE; <span class="built_in">return</span> (ticks); <span class="keyword">case</span> LINE:;&#125; <span class="keyword">while</span>(0)</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define WaitUntil(A)      <span class="keyword">do</span> &#123; <span class="keyword">while</span>(!(A)) WaitX(0);&#125; <span class="keyword">while</span>(0)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define UpdateTimer(TaskVar)    <span class="keyword">do</span> &#123; <span class="keyword">if</span>((TaskVar.task.timer!=0)&amp;&amp;(TaskVar.task.timer!=END)) TaskVar.task.timer--; &#125;  <span class="keyword">while</span>(0)</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define RunTask(TaskName,TaskVar) <span class="keyword">do</span> &#123; <span class="keyword">if</span>(TaskVar.task.timer==0) TaskVar.task.timer=TaskName(&amp;(TaskVar)); &#125;  <span class="keyword">while</span>(0)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">define CallSub(SubTaskName,SubTaskVar)    <span class="keyword">do</span> &#123; WaitX(0);SubTaskVar.task.timer=SubTaskName(&amp;(SubTaskVar));      \</span></span><br><span class="line">if(SubTaskVar.task.timer!=END) return SubTaskVar.task.timer;&#125; while(0)</span><br><span class="line">   </span><br><span class="line">/****************************************************************/</span><br><span class="line"><span class="meta">#</span><span class="bash">define Class(<span class="built_in">type</span>)         typedef struct C_<span class="comment">##type C_##type; struct C_##type</span></span></span><br><span class="line">Class(task)</span><br><span class="line">&#123;</span><br><span class="line"> TimeDef timer;</span><br><span class="line"> LineDef lc;</span><br><span class="line">&#125;;</span><br><span class="line">void runtasks();</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -294,7 +301,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/20170715_NECOUT/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/stm8/20170722_stm8smallos/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -308,18 +315,18 @@
   
 <nav id="article-nav">
   
-    <a href="/20170722_stm8smallos/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/coding_art/20170727_c_define/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          stm8任务调度‘最小系统’
+          c语言define用法
         
       </div>
     </a>
   
   
-    <a href="/20170713_stm8KEYS/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">stm8矩阵键盘扫描程序</div>
+    <a href="/stm8/20170715_NECOUT/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">stm8s之NEC协议红外发射</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -358,7 +365,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/20170715_NECOUT/",
+  id: "//mx1117.com/stm8/20170722_stm8smallos/",
   owner: 'mx1117',
   repo: 'mx1117.github.io',
   oauth: {
@@ -382,12 +389,8 @@ gitment.render('gitment-ctn')
 	<!--统计start-->
 		<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 		</script>
-		<span id="busuanzi_container_site_pv">
-		本站总访问量<span id="busuanzi_value_site_pv"></span>次
-		</span>
-		<span id="busuanzi_container_site_uv">
-		总访客数<span id="busuanzi_value_site_uv"></span>人次
-		</span>
+		您是不乖的第<span id="busuanzi_value_site_uv"></span>个小伙伴
+		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 	<!--统计end-->
       	<div class="footer-right">
       		&copy; 2018 偶は可不乖呢
@@ -470,15 +473,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">embed</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,15 +489,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">share</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sources</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
             
             <div class="clearfix"></div>

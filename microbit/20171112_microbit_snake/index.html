@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="//mx1117.com">
-  <title>[FSM]状态机实践入门 | Coder Not Cute</title>
+  <title>microbit的贪吃蛇 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="转自原链接：https://www.amobbs.com/thread-4585393-1-1.html不用怀疑，单片机的万能语言就是状态机。">
-<meta name="keywords" content="embed,单片机,stm8">
+  <meta name="description" content="microbit自带的5*5的LED点阵让我们自然的想起贪吃蛇这个游戏啦">
+<meta name="keywords" content="embed,microbit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="[FSM]状态机实践入门">
-<meta property="og:url" content="//mx1117.com/20170728_FSM_Learning1/index.html">
+<meta property="og:title" content="microbit的贪吃蛇">
+<meta property="og:url" content="//mx1117.com/microbit/20171112_microbit_snake/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
-<meta property="og:description" content="转自原链接：https://www.amobbs.com/thread-4585393-1-1.html不用怀疑，单片机的万能语言就是状态机。">
+<meta property="og:description" content="microbit自带的5*5的LED点阵让我们自然的想起贪吃蛇这个游戏啦">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-06-15T11:22:26.473Z">
+<meta property="og:image" content="//mx1117.com/assets/img/microbit_snake1.jpg">
+<meta property="og:image" content="//mx1117.com/assets/img/microbit_snake2.jpg">
+<meta property="og:updated_time" content="2018-06-16T03:19:21.651Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="[FSM]状态机实践入门">
-<meta name="twitter:description" content="转自原链接：https://www.amobbs.com/thread-4585393-1-1.html不用怀疑，单片机的万能语言就是状态机。">
+<meta name="twitter:title" content="microbit的贪吃蛇">
+<meta name="twitter:description" content="microbit自带的5*5的LED点阵让我们自然的想起贪吃蛇这个游戏啦">
+<meta name="twitter:image" content="//mx1117.com/assets/img/microbit_snake1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -64,9 +67,11 @@
 	        
 				<li><a href="/tags/embed/">嵌入式</a></li>
 	        
-				<li><a href="/tags/vps/">VPS</a></li>
+				<li><a href="/tags/code/">编程之路</a></li>
 	        
-				<li><a href="/tags/share/">资源</a></li>
+				<li><a href="/tags/sources/">常用资源</a></li>
+	        
+				<li><a href="/archives/">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,6 +131,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -144,13 +151,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 25%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/embed/">嵌入式</a></li>
+					<li style="width: 20%"><a href="/tags/embed/">嵌入式</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/vps/">VPS</a></li>
+					<li style="width: 20%"><a href="/tags/code/">编程之路</a></li>
 		        
-					<li style="width: 25%"><a href="/tags/share/">资源</a></li>
+					<li style="width: 20%"><a href="/tags/sources/">常用资源</a></li>
+		        
+					<li style="width: 20%"><a href="/archives/">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -165,36 +174,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-20170728_FSM_Learning1" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-microbit/20171112_microbit_snake" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      [FSM]状态机实践入门
+      microbit的贪吃蛇
     </h1>
   
 
         
-        <a href="/20170728_FSM_Learning1/" class="archive-article-date">
-  	<time datetime="2017-07-28T06:25:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
+        <a href="/microbit/20171112_microbit_snake/" class="archive-article-date">
+  	<time datetime="2017-11-12T07:06:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>转自原链接：<a href="https://www.amobbs.com/thread-4585393-1-1.html" target="_blank" rel="noopener">https://www.amobbs.com/thread-4585393-1-1.html</a><br>不用怀疑，单片机的万能语言就是状态机。<br><a id="more"></a><br>还希望大家不要条件反射式的看到状态机就<br>以为我要讲什么VHDL的东西——状态机是一种思维模式，是计算机理论的立足之本（不<br>相信请参考清华大学出版社的《自动机理论与应用》）——因此状态机的实现与语言本<br>身关系并不是绝对的。本文要讨论的状态机，从实现方式上更类似于Java中常用的那种<br>思维模式，而与VHDL相去甚远。<br>路要一步一步走，饭要一口一口吃，为了不把后来人吓跑，状态机理论中更多复杂的部<br>分，我会在以后专门写文章讨论，这里我先找一个切入点，从我常用的2种状态机编写<br>方式为大家慢慢展开。</p>
-<p>首先，关于几个问题，比如：什么地方用状态机？状态机究竟有几种写法？状态机效率<br>到底高不高？是不是把简单问题弄复杂了？这类问题统统不在本文讨论之列，简而言之<br>——谁用谁知道。其实，还不能简单的就这么下了结论，套八股文而不求甚解的也大有<br>人在————因此我要说：关于状态机的各种问题“谁思考谁实践谁坚持谁知道”。</p>
-<h1 id="状态机入门第一式：switch-case一线到底"><a href="#状态机入门第一式：switch-case一线到底" class="headerlink" title="状态机入门第一式：switch case一线到底"></a>状态机入门第一式：switch case一线到底</h1><p>要点：    用switch结构配合一个状态变量，通过修改状态变量的值来切换状态。<br>范例：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//! 定义状态名称与状态值之间的关系，增加可读性</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_START                                   0x00</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_STATE_A                                 0x01</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_STATE_B                                 0x02</span></span><br><span class="line">…</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_RESET                                   0xFF</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">fsm_example_A</span><span class="params">( &lt;&lt;/span&gt;形参列表&gt; )</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">uint8_t</span> s_chFSMState = FSM_START;                      <span class="comment">//!&lt; 定义状态变量</span></span><br><span class="line">…</span><br><span class="line"><span class="keyword">switch</span> ( s_chFSMState ) &#123;</span><br><span class="line"><span class="keyword">case</span> FSM_START:</span><br><span class="line"><span class="comment">//! 这里添加状态机初始化代码</span></span><br><span class="line">…</span><br><span class="line">s_chFSMState = FSM_STATE_A;                           <span class="comment">//!&lt; 进入下一状态</span></span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> FSM_STATE_A:</span><br><span class="line"><span class="comment">//! 这里添加状态机A进入下一状态的检测代码</span></span><br><span class="line"><span class="keyword">if</span> (&lt;&lt;/span&gt;某某条件&gt;) &#123;</span><br><span class="line"><span class="comment">//! 这里做一些进入下一状态时要做的准备工作</span></span><br><span class="line">s_chFSMState = FSM_STATE_B;                       <span class="comment">//!&lt; 进入下一状态</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line"><span class="keyword">case</span> FSM_STATE_B:</span><br><span class="line"><span class="comment">//! 这里添加状态机A进入下一状态的检测代码</span></span><br><span class="line"><span class="keyword">if</span> (&lt;&lt;/span&gt;某某条件&gt;) &#123;</span><br><span class="line"><span class="comment">//! 这里做一些进入下一状态时要做的准备工作</span></span><br><span class="line">s_chFSMState = FSM_STATE_A;                   <span class="comment">//!&lt; 进入下一状态</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (&lt;&lt;/span&gt;某某条件&gt;) &#123;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (&lt;&lt;/span&gt;某某条件&gt;) &#123;</span><br><span class="line">…</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">…</span><br><span class="line"><span class="keyword">case</span> FSM_STOP:</span><br><span class="line"><span class="keyword">case</span> FSM_RESET:</span><br><span class="line"><span class="keyword">default</span>:</span><br><span class="line"><span class="comment">//! 这里添加状态机复位相关的代码</span></span><br><span class="line">…</span><br><span class="line">chFSMState = FSM_START;                                    <span class="comment">//!&lt; 状态机复位</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//! 返回false表示状态机已经不需要继续运行了</span></span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//! 返回true表示状态机正在运行</span></span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>总结：    从范例可知，这种状态机就是一根筋……并不是说他走不出什么分支来，而<br>是说通常他没有办法让多个状态同时处于激活状态。</p>
-<h1 id="状态机入门第二式：if-判断变化无穷"><a href="#状态机入门第二式：if-判断变化无穷" class="headerlink" title="状态机入门第二式：if 判断变化无穷"></a>状态机入门第二式：if 判断变化无穷</h1><p>要点：     用if else…else if结构的组合来描述状态流程图。<br>什么是状态流程图？我不想多解释，因为就那么个简单的东西，说多了反而神秘兮兮的。<br>状态流程图你可以简单粗暴的认为，他就是流程图，等你用得多了，你就渐渐明白为啥<br>多了“状态”二字；如果你后来或者先前学过状态图，那么很快你就会明白状态流程图<br>比状态图“高级”了多少。<br>1、 不管怎么说，你可以先为你要处理的事物画一个流程图。如果流程图都不会画，就<br>不用凑热闹了。<br>2、 接下来，把流程图上每一个方框或者判断筐都“简单粗暴”地看成一个状态。<br>3、 将每一个状态用if结构表示出来<br>if (&lt;状态标志&gt;) {<br>//! 状态代码<br>…<br>}<br>4、 自己看着办，合并多余的状态，优化优化代码。<br>范例：</p>
-<p>//! 首先将布尔量的状态标志压缩在一个字节里面以节省内存开支</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">union</span> &#123;</span><br><span class="line"><span class="keyword">uint8_t</span>     Value;</span><br><span class="line"><span class="keyword">uint8_t</span>     Byte;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line"><span class="keyword">unsigned</span> BIT0:<span class="number">1</span>;</span><br><span class="line"><span class="keyword">unsigned</span> BIT1:<span class="number">1</span>;</span><br><span class="line"><span class="keyword">unsigned</span> BIT2:<span class="number">1</span>;</span><br><span class="line"><span class="keyword">unsigned</span> BIT3:<span class="number">1</span>;</span><br><span class="line"><span class="keyword">unsigned</span> BIT4:<span class="number">1</span>;</span><br><span class="line"><span class="keyword">unsigned</span> BIT5:<span class="number">1</span>;</span><br><span class="line"><span class="keyword">unsigned</span> BIT6:<span class="number">1</span>;</span><br><span class="line"><span class="keyword">unsigned</span> BIT7:<span class="number">1</span>;</span><br><span class="line">&#125;           Bits;</span><br><span class="line">&#125;<span class="keyword">byte_t</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_ACTION_FLAG             s_tbState.Bits</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_STOP_ALL_ACTIONS()      do &#123;s_tbState.Value = 0;&#125;while(0)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_START                   (0 == s_tbState.Value)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_STATE_A                 FSM_ACTION_FLAG.BIT0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_STATE_B                 FSM_ACTION_FLAG.BIT1</span></span><br><span class="line">…</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FSM_STATE_H                 FSM_ACTION_FLAG.BIT7</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">fsm_example_B</span><span class="params">( &lt;&lt;/span&gt;形参列表&gt; )</span> </span>&#123;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">byte_t</span> s_tbState = &#123;<span class="number">0</span>&#125;;                               <span class="comment">//!&lt; 定义状态变量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (FSM_START) &#123;                                             <span class="comment">//!&lt; 起始状态</span></span><br><span class="line"><span class="comment">//! 这里放置状态机初始化的代码</span></span><br><span class="line">…</span><br><span class="line">FSM_STATE_A = <span class="literal">true</span>;                                       <span class="comment">//!&lt; 进入状态B，start装台自动结束</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (FSM_STATE_A) &#123;                                           <span class="comment">//!&lt; 一个典型的简单状态</span></span><br><span class="line"><span class="comment">//! 这里放置状态A的代码或者</span></span><br><span class="line">…</span><br><span class="line"><span class="comment">//! 这里放置某些条件以开启别的状态</span></span><br><span class="line"><span class="keyword">if</span> (&lt;&lt;/span&gt;某些条件&gt;) &#123;</span><br><span class="line"><span class="comment">//! 这里做一些“进入”下一个状态之前的准备工作</span></span><br><span class="line">FSM_STATE_B = <span class="literal">true</span>;                                  <span class="comment">//!&lt; 开启下一个状态</span></span><br><span class="line">FSM_STATE_A = <span class="literal">false</span>;                                 <span class="comment">//!&lt; 结束当前状态</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (FSM_STATE_B) &#123;                                           <span class="comment">//!&lt; 一个典型的监视状态</span></span><br><span class="line">…</span><br><span class="line"><span class="comment">//! 这里检测某些条件</span></span><br><span class="line"><span class="keyword">if</span> (&lt;&lt;/span&gt;某些条件&gt;) &#123;</span><br><span class="line"><span class="comment">//! 这里做一些“开启”某个状态的准备工作</span></span><br><span class="line">FSM_STATE_C = <span class="literal">true</span>;                                  <span class="comment">//!&lt; 开启某一个状态而不结束当前状态</span></span><br><span class="line">FSM_STATE_D = <span class="literal">true</span>;                                  <span class="comment">//!&lt; 你当然可以一次触发多个状态</span></span><br><span class="line">…</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (&lt;&lt;/span&gt;某些条件&gt;) &#123;</span><br><span class="line"><span class="comment">//! 满足某些条件以后关闭当前状态</span></span><br><span class="line">FSM_STATE_B = <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">…</span><br><span class="line"><span class="keyword">if</span> (FSM_STATE_F) &#123;                                            <span class="comment">//!&lt; 一个典型的子状态机调用</span></span><br><span class="line"><span class="keyword">if</span> (!fsm_example_a(&lt;&lt;/span&gt;实参列表&gt;)) &#123;                  <span class="comment">//!&lt; 等待子状态机返回false</span></span><br><span class="line"><span class="comment">//!子状态机运行完成，进入下一状态</span></span><br><span class="line">…</span><br><span class="line">FSM_STATE_F = <span class="literal">false</span>;                                  <span class="comment">//!&lt; 结束当前状态</span></span><br><span class="line">FSM_STATE_x = <span class="literal">true</span>;                                   <span class="comment">//!&lt; 进入下一状态x代表某个字母</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (FSM_STATE_H) &#123;                                            <span class="comment">//!&lt; 一个典型的中止状态</span></span><br><span class="line"><span class="comment">//!&lt; 某些状态机的操作，比如释放某些资源</span></span><br><span class="line">…</span><br><span class="line">FSM_STOP_ALL_ACTIONS();                                   <span class="comment">//!&lt; 复位状态机</span></span><br><span class="line"><span class="keyword">return</span> <span class="literal">false</span>;                                             <span class="comment">//!&lt; 返回false表示状态机结束</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="literal">true</span>;                                                  <span class="comment">//!&lt; 返回true表示状态机保持运行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>总结：    从范例可知，这种状态机非常灵活，通过布尔变量的开启和关闭，你可以自<br>由的控制某些状态的开启。同一时刻可能有多个状态是激活的。这种结构几乎可以翻译<br>任何流程图。具体还有很多好处，可以在使用中体会。</p>
-<h1 id="状态机入门第三式：状态在心中，无态也变态"><a href="#状态机入门第三式：状态在心中，无态也变态" class="headerlink" title="状态机入门第三式：状态在心中，无态也变态"></a>状态机入门第三式：状态在心中，无态也变态</h1><p>要点：    所有的函数都可以看作是状态机，只不过普通的函数是一个只有单一状态的<br>状态机。如果函数有返回值，且这个返回值能表征至少两种以上不同的状态（比如返回<br>是一个指针，那么NULL和非NULL就是两种状态；比如返回是一个布尔变量，那么true和<br>false就是两种状态；比如返回的是一个整数，并且整数的某些特征可以被分类，那么<br>这些不同分类就是几种不同的状态），那么这些返回值就可以被用作指示当前状态机的<br>运行情况。状态机可以调用子状态机。所有的状态都应该是none-block的，简单说就是<br>不会把系统定死在某一个状态里面很久都出不来，比如while(1)或者循环次数较大的for<br>结构；否则状态机的存在意义就大打折扣——直接按照流程图写代码不就好了，干吗非<br>要翻译成状态机？状态机中，状态的功能应该是等待某一个事件的发生（或者说条件的<br>满足）；某些情况下，一些一次性执行完的流程也可以独立成一个状态——它当然没有<br>等待任何条件的满足，你可以认为他是无条件进行状态转移的。</p>
-<p>总体说来，状态机是一个万能的计算机语言表述方式，与具体的载体语言关系不大。心<br>中有状态，代码怎会无状态？状态机是裸机条件下多任务的廉价实现方案。在状态机多<br>任务条件下，操作系统牵涉的几乎所有概念都会有所涉及，比如任务的同步，临界区的<br>保护，任务间的通讯，任务的优先级，资源的动态分配等等。你可以这么理解，每一个<br>状态机都是一个进程，每一个状态都是一个线程，因为进程有自己的资源，而同一个进<br>程里面的多个线程是公用同一片资源的。你甚至可以在有抢占式操作系统的情况下用状<br>态机，这个时候，操作系统的每一个任务都是个内核，那么整个系统开发就可以登小于<br>多核系统开发了。</p>
+        <h2 id="microbit自带的5-5的LED点阵让我们自然的想起贪吃蛇这个游戏啦"><a href="#microbit自带的5-5的LED点阵让我们自然的想起贪吃蛇这个游戏啦" class="headerlink" title="microbit自带的5*5的LED点阵让我们自然的想起贪吃蛇这个游戏啦"></a>microbit自带的5*5的LED点阵让我们自然的想起贪吃蛇这个游戏啦</h2><a id="more"></a>
+<h4 id="这个是刚开始的样子图片："><a href="#这个是刚开始的样子图片：" class="headerlink" title="这个是刚开始的样子图片："></a>这个是刚开始的样子图片：</h4><p><img src="/assets/img/microbit_snake1.jpg" alt=""></p>
+<h4 id="我们吃到了第一个水果："><a href="#我们吃到了第一个水果：" class="headerlink" title="我们吃到了第一个水果："></a>我们吃到了第一个水果：</h4><p><img src="/assets/img/microbit_snake2.jpg" alt=""></p>
+<p>撞死以后会自动重新开始游戏。</p>
+<p>效果还是很不错的，看看代码吧：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Direction code:</span></span><br><span class="line"><span class="comment">#   px - positive x</span></span><br><span class="line"><span class="comment">#   nx - negative x</span></span><br><span class="line"><span class="comment">#   py - positive y</span></span><br><span class="line"><span class="comment">#   ny - negative y</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> microbit <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">snake = [[<span class="number">0</span>, <span class="number">0</span>]]</span><br><span class="line">snake_length = <span class="number">2</span></span><br><span class="line">current_fruit_location = [<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">direction = <span class="string">"px"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reset_game</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">global</span> snake</span><br><span class="line">    <span class="keyword">global</span> snake_length</span><br><span class="line">    <span class="keyword">global</span> current_fruit_location</span><br><span class="line">    <span class="keyword">global</span> direction</span><br><span class="line">    </span><br><span class="line">    snake = [[<span class="number">0</span>, <span class="number">0</span>]]</span><br><span class="line">    snake_length = <span class="number">1</span></span><br><span class="line">    current_fruit_location = [<span class="number">2</span>,<span class="number">2</span>]</span><br><span class="line">    direction = <span class="string">"px"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">collision_check</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">global</span> snake</span><br><span class="line">    </span><br><span class="line">    dup_snake = snake[:<span class="number">-1</span>]</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">if</span> snake[<span class="number">-1</span>] <span class="keyword">in</span> dup_snake:</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add_fruit</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">global</span> current_fruit_location</span><br><span class="line">    </span><br><span class="line">    current_fruit_location = [randint(<span class="number">0</span>,<span class="number">4</span>), randint(<span class="number">0</span>,<span class="number">4</span>)]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> current_fruit_location <span class="keyword">in</span> snake:</span><br><span class="line">        </span><br><span class="line">        current_fruit_location = [randint(<span class="number">0</span>,<span class="number">4</span>), randint(<span class="number">0</span>,<span class="number">4</span>)]</span><br><span class="line">        </span><br><span class="line">    display.clear()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">move_snake</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">global</span> snake</span><br><span class="line">    <span class="keyword">global</span> snake_length</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> direction == <span class="string">"px"</span>:</span><br><span class="line">        </span><br><span class="line">        snake.append([(snake[<span class="number">-1</span>][<span class="number">0</span>]+<span class="number">1</span>)%<span class="number">5</span>, snake[<span class="number">-1</span>][<span class="number">1</span>]])</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">elif</span> direction == <span class="string">"nx"</span>:</span><br><span class="line">        </span><br><span class="line">        snake.append([(snake[<span class="number">-1</span>][<span class="number">0</span>]<span class="number">-1</span>)%<span class="number">5</span>, snake[<span class="number">-1</span>][<span class="number">1</span>]])</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">elif</span> direction == <span class="string">"py"</span>:</span><br><span class="line">        </span><br><span class="line">        snake.append([snake[<span class="number">-1</span>][<span class="number">0</span>], (snake[<span class="number">-1</span>][<span class="number">1</span>]+<span class="number">1</span>)%<span class="number">5</span>])</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">elif</span> direction == <span class="string">"ny"</span>:</span><br><span class="line">        </span><br><span class="line">        snake.append([snake[<span class="number">-1</span>][<span class="number">0</span>], (snake[<span class="number">-1</span>][<span class="number">1</span>]<span class="number">-1</span>)%<span class="number">5</span>])</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">if</span> snake_length &lt; len(snake):</span><br><span class="line">        </span><br><span class="line">        snake.pop(<span class="number">0</span>)</span><br><span class="line">                </span><br><span class="line">    <span class="keyword">if</span> snake[<span class="number">-1</span>] == current_fruit_location:</span><br><span class="line">        </span><br><span class="line">        snake_length += <span class="number">1</span></span><br><span class="line">        add_fruit()</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">detect_direction_change</span><span class="params">()</span>:</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">global</span> direction</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> button_a.was_pressed():</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> direction == <span class="string">"px"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"ny"</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> direction == <span class="string">"ny"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"nx"</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> direction == <span class="string">"nx"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"py"</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> direction == <span class="string">"py"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"px"</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> button_b.was_pressed():</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> direction == <span class="string">"px"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"py"</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> direction == <span class="string">"py"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"nx"</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> direction == <span class="string">"nx"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"ny"</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">elif</span> direction == <span class="string">"ny"</span>:</span><br><span class="line">            </span><br><span class="line">            direction = <span class="string">"nx"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    </span><br><span class="line">    display.clear()</span><br><span class="line">   </span><br><span class="line">    detect_direction_change()</span><br><span class="line">    move_snake()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> piece <span class="keyword">in</span> snake:</span><br><span class="line">        </span><br><span class="line">        display.set_pixel(piece[<span class="number">0</span>], piece[<span class="number">1</span>], <span class="number">9</span>)</span><br><span class="line">        </span><br><span class="line">    display.set_pixel(current_fruit_location[<span class="number">0</span>], current_fruit_location[<span class="number">1</span>], <span class="number">4</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> collision_check():</span><br><span class="line">        </span><br><span class="line">        display.clear()</span><br><span class="line">        display.scroll(<span class="string">"GAME OVER"</span>, wait=<span class="keyword">True</span>, loop=<span class="keyword">False</span>)</span><br><span class="line">        </span><br><span class="line">        reset_game()</span><br><span class="line">    </span><br><span class="line">    sleep(<span class="number">500</span>)</span><br></pre></td></tr></table></figure></p>
+<p>代码链接：<a href="https://github.com/mx1117/microbit_snake" target="_blank" rel="noopener">https://github.com/mx1117/microbit_snake</a></p>
 
       
 
@@ -243,11 +248,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单片机</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">stm8</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">microbit</a>
         		</li>
       		
 		</ul>
@@ -303,7 +304,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/20170728_FSM_Learning1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/microbit/20171112_microbit_snake/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -317,18 +318,9 @@
   
 <nav id="article-nav">
   
-    <a href="/20170810_NECReceive/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          NEC协议红外接收之stm8s103f3p6
-        
-      </div>
-    </a>
   
-  
-    <a href="/20170727_c_define/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">c语言define用法</div>
+    <a href="/python/20171017_pythonlearning_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python入门（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -347,19 +339,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#状态机入门第一式：switch-case一线到底"><span class="toc-number">1.</span> <span class="toc-text">状态机入门第一式：switch case一线到底</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态机入门第二式：if-判断变化无穷"><span class="toc-number">2.</span> <span class="toc-text">状态机入门第二式：if 判断变化无穷</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态机入门第三式：状态在心中，无态也变态"><span class="toc-number">3.</span> <span class="toc-text">状态机入门第三式：状态在心中，无态也变态</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -380,7 +359,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/20170728_FSM_Learning1/",
+  id: "//mx1117.com/microbit/20171112_microbit_snake/",
   owner: 'mx1117',
   repo: 'mx1117.github.io',
   oauth: {
@@ -393,30 +372,6 @@ gitment.render('gitment-ctn')
   
 
 <!-- 目录内容 -->
-	
-		<p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-            <span class="btn-bg"></span>
-            <span class="btn-text">文章导航</span>
-            </p>
-            <div id="toc-article" class="toc-article">
-                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-                <strong class="toc-title">文章目录</strong>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#状态机入门第一式：switch-case一线到底"><span class="toc-number">1.</span> <span class="toc-text">状态机入门第一式：switch case一线到底</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态机入门第二式：if-判断变化无穷"><span class="toc-number">2.</span> <span class="toc-text">状态机入门第二式：if 判断变化无穷</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#状态机入门第三式：状态在心中，无态也变态"><span class="toc-number">3.</span> <span class="toc-text">状态机入门第三式：状态在心中，无态也变态</span></a></li></ol>
-           </div>
-	   <script type="text/javascript">
-            function showToc(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:block");
-                show_toc_btn.setAttribute("style","display:none");
-                };
-            function showBtn(){
-                var toc_article = document.getElementById("toc-article");
-                var show_toc_btn = document.getElementById("show-toc-btn");
-                toc_article.setAttribute("style","display:none");
-                show_toc_btn.setAttribute("style","display:block");
-                };
-		</script>
 	     
 <!-- 目录内容结束 -->
           </div>
@@ -428,12 +383,8 @@ gitment.render('gitment-ctn')
 	<!--统计start-->
 		<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
 		</script>
-		<span id="busuanzi_container_site_pv">
-		本站总访问量<span id="busuanzi_value_site_pv"></span>次
-		</span>
-		<span id="busuanzi_container_site_uv">
-		总访客数<span id="busuanzi_value_site_uv"></span>人次
-		</span>
+		您是不乖的第<span id="busuanzi_value_site_uv"></span>个小伙伴
+		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
 	<!--统计end-->
       	<div class="footer-right">
       		&copy; 2018 偶は可不乖呢
@@ -516,15 +467,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ss</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">embed</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,15 +483,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">share</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">sources</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ss</a>
               </li>
             
             <div class="clearfix"></div>
