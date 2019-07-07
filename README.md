@@ -1,4 +1,4 @@
-### welcome to my blog:https://mx1117.com
+### welcome to my blog:https://blog.mx1117.com
 
 This blog is powered by hexo:https://github.com/hexojs/hexo
 
