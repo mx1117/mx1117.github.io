@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>mysql基本语法（一） | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="基本语法总结：">
-<meta name="keywords" content="python,code,mysql">
+<meta name="keywords" content="code,python,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql基本语法（一）">
-<meta property="og:url" content="//mx1117.com/sql/20180127_mysql1/index.html">
+<meta property="og:url" content="//blog.mx1117.com/sql/20180127_mysql1/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="基本语法总结：">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -201,35 +201,66 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>基本语法总结：<br><a id="more"></a></p>
-<h2 id="基础使用命令："><a href="#基础使用命令：" class="headerlink" title="基础使用命令："></a>基础使用命令：</h2><h3 id="使用命令连接"><a href="#使用命令连接" class="headerlink" title="使用命令连接"></a>使用命令连接</h3><p>命令操作方式，在工作中使用的更多一些，所以要达到熟练的程度<br>打开终端，运行命令<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql -uroot -p</span></span><br></pre></td></tr></table></figure></p>
+        <p>基本语法总结：</p>
+<a id="more"></a>
+<h2 id="基础使用命令："><a href="#基础使用命令：" class="headerlink" title="基础使用命令："></a>基础使用命令：</h2><h3 id="使用命令连接"><a href="#使用命令连接" class="headerlink" title="使用命令连接"></a>使用命令连接</h3><p>命令操作方式，在工作中使用的更多一些，所以要达到熟练的程度<br>打开终端，运行命令</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mysql -uroot -p</span></span><br></pre></td></tr></table></figure>
+
 <p>回车后输入密码</p>
 <h3 id="退出登录"><a href="#退出登录" class="headerlink" title="退出登录"></a>退出登录</h3><p>quit或exit</p>
 <h3 id="查看版本：select-version"><a href="#查看版本：select-version" class="headerlink" title="查看版本：select version();"></a>查看版本：select version();</h3><h3 id="显示当前时间：select-now"><a href="#显示当前时间：select-now" class="headerlink" title="显示当前时间：select now();"></a>显示当前时间：select now();</h3><h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><p>一般在公司开发中，可能会将数据库统一搭建在一台服务器上，所有开发人员共用一个数据库，而不是在自己的电脑中配置一个数据库<br>运行命令<br>mysql -hip地址 -uroot -p<br>-h后面写要连接的主机ip地址<br>-u后面写连接的用户名<br>-p回车后写密码</p>
 <h2 id="数据库操作："><a href="#数据库操作：" class="headerlink" title="数据库操作："></a>数据库操作：</h2><h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> 数据库名 <span class="keyword">charset</span>=utf8;</span><br></pre></td></tr></table></figure>
+
 <h3 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h3><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
 <h3 id="切换数据库"><a href="#切换数据库" class="headerlink" title="切换数据库"></a>切换数据库</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> 数据库名;</span><br></pre></td></tr></table></figure>
+
 <h3 id="查看当前选择的数据库"><a href="#查看当前选择的数据库" class="headerlink" title="查看当前选择的数据库"></a>查看当前选择的数据库</h3><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">database</span>();</span><br></pre></td></tr></table></figure>
+
 <h2 id="表操作"><a href="#表操作" class="headerlink" title="表操作"></a>表操作</h2><h3 id="查看当前数据库中所有表"><a href="#查看当前数据库中所有表" class="headerlink" title="查看当前数据库中所有表"></a>查看当前数据库中所有表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">tables</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><p>auto_increment表示自动增长<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(列及类型);</span><br><span class="line">如：</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> students(</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">int</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">sname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
+
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><p>auto_increment表示自动增长</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名(列及类型);</span><br><span class="line">如：</span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> students(</span><br><span class="line"><span class="keyword">id</span> <span class="built_in">int</span> auto_increment primary <span class="keyword">key</span>,</span><br><span class="line">sname <span class="built_in">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="literal">null</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
 <h3 id="修改表"><a href="#修改表" class="headerlink" title="修改表"></a>修改表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名 <span class="keyword">add</span>|<span class="keyword">change</span>|<span class="keyword">drop</span> 列名 类型;</span><br><span class="line">如：</span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> students <span class="keyword">add</span> birthday datetime;</span><br></pre></td></tr></table></figure>
+
 <h3 id="删除表"><a href="#删除表" class="headerlink" title="删除表"></a>删除表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></table></figure>
+
 <h3 id="查看表结构"><a href="#查看表结构" class="headerlink" title="查看表结构"></a>查看表结构</h3><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">desc 表名<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="更改表名称"><a href="#更改表名称" class="headerlink" title="更改表名称"></a>更改表名称</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">rename</span> <span class="keyword">table</span> 原表名 <span class="keyword">to</span> 新表名;</span><br></pre></td></tr></table></figure>
+
 <h3 id="查看表的创建语句"><a href="#查看表的创建语句" class="headerlink" title="查看表的创建语句"></a>查看表的创建语句</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">table</span> <span class="string">'表名'</span>;</span><br></pre></td></tr></table></figure>
+
 <h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表名</span><br></pre></td></tr></table></figure>
-<h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>全列插入：<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">values</span>(...)</span><br></pre></td></tr></table></figure></p>
-<p>缺省插入：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert <span class="keyword">into</span> 表名(列<span class="number">1</span>,<span class="params">...</span>) values(值<span class="number">1</span>,<span class="params">...</span>)</span><br></pre></td></tr></table></figure></p>
-<p>同时插入多条数据：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert <span class="keyword">into</span> 表名 values(<span class="params">...</span>),(<span class="params">...</span>)<span class="params">...</span>;</span><br></pre></td></tr></table></figure></p>
-<p>或<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert <span class="keyword">into</span> 表名(列<span class="number">1</span>,<span class="params">...</span>) values(值<span class="number">1</span>,<span class="params">...</span>),(值<span class="number">1</span>,<span class="params">...</span>)<span class="params">...</span>;</span><br></pre></td></tr></table></figure></p>
+
+<h3 id="增加"><a href="#增加" class="headerlink" title="增加"></a>增加</h3><p>全列插入：</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> 表名 <span class="keyword">values</span>(...)</span><br></pre></td></tr></table></figure>
+
+<p>缺省插入：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert <span class="keyword">into</span> 表名(列<span class="number">1</span>,<span class="params">...</span>) values(值<span class="number">1</span>,<span class="params">...</span>)</span><br></pre></td></tr></table></figure>
+
+<p>同时插入多条数据：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert <span class="keyword">into</span> 表名 values(<span class="params">...</span>),(<span class="params">...</span>)<span class="params">...</span>;</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">insert <span class="keyword">into</span> 表名(列<span class="number">1</span>,<span class="params">...</span>) values(值<span class="number">1</span>,<span class="params">...</span>),(值<span class="number">1</span>,<span class="params">...</span>)<span class="params">...</span>;</span><br></pre></td></tr></table></figure>
+
 <p>主键列是自动增长，但是在全列插入时需要占位，通常使用0，插入成功后以实际数据为准</p>
 <h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update 表名 <span class="builtin-name">set</span> 列<span class="attribute">1</span>=值1,... where 条件</span><br></pre></td></tr></table></figure>
+
 <h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> 表名 <span class="keyword">where</span> 条件</span><br></pre></td></tr></table></figure>
+
 <h3 id="逻辑删除，本质就是修改操作update"><a href="#逻辑删除，本质就是修改操作update" class="headerlink" title="逻辑删除，本质就是修改操作update"></a>逻辑删除，本质就是修改操作update</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table students <span class="builtin-name">add</span> isdelete bit<span class="built_in"> default </span>0;</span><br></pre></td></tr></table></figure>
-<p>如果需要删除则<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> students isdelete=<span class="number">1</span> <span class="keyword">where</span> ...;</span><br></pre></td></tr></table></figure></p>
+
+<p>如果需要删除则</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> students isdelete=<span class="number">1</span> <span class="keyword">where</span> ...;</span><br></pre></td></tr></table></figure>
+
 <h2 id="备份与恢复"><a href="#备份与恢复" class="headerlink" title="备份与恢复"></a>备份与恢复</h2><h3 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h3><p>进入超级管理员<br>sudo -s<br>进入mysql库目录<br>cd /var/lib/mysql<br>运行mysqldump命令<br>mysqldump –uroot –p 数据库名 &gt; ~/Desktop/备份文件.sql;<br>按提示输入mysql的密码</p>
 <h3 id="数据恢复"><a href="#数据恢复" class="headerlink" title="数据恢复"></a>数据恢复</h3><p>连接mysqk，创建数据库</p>
-<p>退出连接，执行如下命令<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot –p 数据库名 &lt; ~<span class="string">/Desktop/</span>备份文件<span class="string">.sql</span></span><br></pre></td></tr></table></figure></p>
+<p>退出连接，执行如下命令</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot –p 数据库名 &lt; ~<span class="string">/Desktop/</span>备份文件<span class="string">.sql</span></span><br></pre></td></tr></table></figure>
+
 <p>根据提示输入mysql密码</p>
 
       
@@ -275,11 +306,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -339,7 +370,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/sql/20180127_mysql1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/sql/20180127_mysql1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -412,11 +443,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/sql/20180127_mysql1/",
+  id: "//blog.mx1117.com/sql/20180127_mysql1/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -556,11 +587,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -568,7 +603,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -576,15 +611,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -605,10 +636,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

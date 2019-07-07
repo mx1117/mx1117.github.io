@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>v2ray ubuntu客户端配置 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="ubuntu客户端的安装方式和服务器一样。">
 <meta name="keywords" content="sources,vps,v2ray">
 <meta property="og:type" content="article">
 <meta property="og:title" content="v2ray ubuntu客户端配置">
-<meta property="og:url" content="//mx1117.com/vps/20190601_v2ray_ubuntu/index.html">
+<meta property="og:url" content="//blog.mx1117.com/vps/20190601_v2ray_ubuntu/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="ubuntu客户端的安装方式和服务器一样。">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -201,15 +201,25 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ubuntu客户端的安装方式和服务器一样。<br><a id="more"></a></p>
-<h2 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h2><p>vps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure></p>
-<h2 id="下载脚本"><a href="#下载脚本" class="headerlink" title="下载脚本"></a>下载脚本</h2><p>安装完wget之后就可以进行下载操作了，如下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//install.direct/<span class="keyword">go</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="安装unzip"><a href="#安装unzip" class="headerlink" title="安装unzip"></a>安装unzip</h2><p>因为centos不支持apt-get，我们需要安装unzip，详见官方说明：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> zip unzip</span><br></pre></td></tr></table></figure></p>
+        <p>ubuntu客户端的安装方式和服务器一样。</p>
+<a id="more"></a>
+<h2 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h2><p>vps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载脚本"><a href="#下载脚本" class="headerlink" title="下载脚本"></a>下载脚本</h2><p>安装完wget之后就可以进行下载操作了，如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//install.direct/<span class="keyword">go</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装unzip"><a href="#安装unzip" class="headerlink" title="安装unzip"></a>安装unzip</h2><p>因为centos不支持apt-get，我们需要安装unzip，详见官方说明：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> zip unzip</span><br></pre></td></tr></table></figure>
+
 <h2 id="执行安装"><a href="#执行安装" class="headerlink" title="执行安装"></a>执行安装</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash <span class="keyword">go</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+
 <p>说明：<br>此脚本会自动安装以下文件：<br>/usr/bin/v2ray/v2ray：V2Ray 程序；<br>/usr/bin/v2ray/v2ctl：V2Ray 工具；<br>/etc/v2ray/config.json：配置文件；<br>/usr/bin/v2ray/geoip.dat：IP 数据文件<br>/usr/bin/v2ray/geosite.dat：域名数据文件</p>
 <p>根据你服务器端的配置来修改/etc/v2ray/config.json配置文件（如果安装过windows版，可以去该软件下 导出配置文件 粘贴到此目录下）</p>
 <h2 id="启动v2ray"><a href="#启动v2ray" class="headerlink" title="启动v2ray"></a>启动v2ray</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service v2ray <span class="literal">start</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="查看是否启动v2ray"><a href="#查看是否启动v2ray" class="headerlink" title="查看是否启动v2ray"></a>查看是否启动v2ray</h2><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service v2ray <span class="keyword">status</span></span><br></pre></td></tr></table></figure>
+
 <p>到此步骤v2ray算是安装配置完成了，但是如果想成功访问谷歌 还需要配置代理设置<br>代理设置就是config.json里面写的，一般设置成127.0.0.1 端口号 1080</p>
 
       
@@ -319,7 +329,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/vps/20190601_v2ray_ubuntu/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/vps/20190601_v2ray_ubuntu/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,11 +380,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/vps/20190601_v2ray_ubuntu/",
+  id: "//blog.mx1117.com/vps/20190601_v2ray_ubuntu/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -490,11 +500,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,7 +516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,15 +524,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,10 +549,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

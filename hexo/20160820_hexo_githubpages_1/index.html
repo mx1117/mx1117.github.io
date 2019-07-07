@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>用hexo搭建githubpage(1)-入门 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="github提供的page，hexo提供的静态博客文档，这样可以搭建一个自己的一个博客网站。 使用github pages服务搭建博客的好处有：">
 <meta name="keywords" content="hexo,code,githubpages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用hexo搭建githubpage(1)-入门">
-<meta property="og:url" content="//mx1117.com/hexo/20160820_hexo_githubpages_1/index.html">
+<meta property="og:url" content="//blog.mx1117.com/hexo/20160820_hexo_githubpages_1/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="github提供的page，hexo提供的静态博客文档，这样可以搭建一个自己的一个博客网站。 使用github pages服务搭建博客的好处有：">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="//mx1117.com/assets/img/hexosettings1.png">
-<meta property="og:image" content="//mx1117.com/assets/img/hexosettings2.png">
-<meta property="og:image" content="//mx1117.com/assets/img/hexosettings3.png">
+<meta property="og:image" content="//blog.mx1117.com/assets/img/hexosettings1.png">
+<meta property="og:image" content="//blog.mx1117.com/assets/img/hexosettings2.png">
+<meta property="og:image" content="//blog.mx1117.com/assets/img/hexosettings3.png">
 <meta property="og:updated_time" content="2019-07-07T09:47:15.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo搭建githubpage(1)-入门">
 <meta name="twitter:description" content="github提供的page，hexo提供的静态博客文档，这样可以搭建一个自己的一个博客网站。 使用github pages服务搭建博客的好处有：">
-<meta name="twitter:image" content="//mx1117.com/assets/img/hexosettings1.png">
+<meta name="twitter:image" content="//blog.mx1117.com/assets/img/hexosettings1.png">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -52,7 +52,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -206,19 +206,25 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <p>github提供的page，hexo提供的静态博客文档，这样可以搭建一个自己的一个博客网站。</p>
-<p>使用github pages服务搭建博客的好处有：<br><a id="more"></a><br>全是静态文件，访问速度快；<br>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；<br>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；<br>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；<br>博客内容可以轻松打包、转移、发布到其它平台；</p>
+<p>使用github pages服务搭建博客的好处有：</p>
+<a id="more"></a>
+<p>全是静态文件，访问速度快；<br>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；<br>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；<br>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；<br>博客内容可以轻松打包、转移、发布到其它平台；</p>
 <h1 id="一、github相关设置"><a href="#一、github相关设置" class="headerlink" title="一、github相关设置"></a>一、github相关设置</h1><h2 id="1、在github上创建一个项目"><a href="#1、在github上创建一个项目" class="headerlink" title="1、在github上创建一个项目"></a>1、在github上创建一个项目</h2><p>注意：项目名称必须为自己   github的用户名.github.io</p>
 <h2 id="2、代码库的设置"><a href="#2、代码库的设置" class="headerlink" title="2、代码库的设置"></a>2、代码库的设置</h2><p>开启gh-pages功能，点击界面右侧的Settings，你将会打开这个库的setting页面，向下拖动，直到看见GitHub Pages。</p>
 <p>之前是需要：点击Automatic page generator，Github将会自动替你创建出一个gh-pages的页面。 如果你的配置没有问题，那么大约15分钟之后，yourname.github.io这个网址就可以正常访问了~ 如果yourname.github.io已经可以正常访问了，那么Github一侧的配置已经全部结束了。</p>
 <p>现在不需要设置page generator。就可以访问<a href="https://mx1117.github.io/" target="_blank" rel="noopener">https://mx1117.github.io/</a></p>
 <h1 id="二、安装hexo"><a href="#二、安装hexo" class="headerlink" title="二、安装hexo"></a>二、安装hexo</h1><h2 id="1、全局安装hexo-cli指令"><a href="#1、全局安装hexo-cli指令" class="headerlink" title="1、全局安装hexo-cli指令"></a>1、全局安装hexo-cli指令</h2><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-<span class="keyword">cli</span> -g</span><br><span class="line">查看hexo版本</span><br><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
 <h2 id="2、初始化hexo"><a href="#2、初始化hexo" class="headerlink" title="2、初始化hexo"></a>2、初始化hexo</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo init</span></span><br></pre></td></tr></table></figure>
-<p>hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：<br><img src="/assets/img/hexosettings1.png" alt=""></p>
+
+<p>hexo会自动下载一些文件到这个目录，包括node_modules，目录结构如下图：<br><img src="/assets/img/hexosettings1.png" alt></p>
 <h2 id="3、开始体验hexo"><a href="#3、开始体验hexo" class="headerlink" title="3、开始体验hexo"></a>3、开始体验hexo</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo g</span></span><br></pre></td></tr></table></figure>
+
 <p>生成静态文件到public文件夹，没有public文件夹就会自动创建，如果有了就会覆盖public内容。</p>
-<p>public文件夹的内容是要提交到github上的。<br><img src="/assets/img/hexosettings2.png" alt=""></p>
+<p>public文件夹的内容是要提交到github上的。<br><img src="/assets/img/hexosettings2.png" alt></p>
 <h2 id="4、开启本地服务"><a href="#4、开启本地服务" class="headerlink" title="4、开启本地服务"></a>4、开启本地服务</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure>
-<p>hexo s是开启本地预览服务，打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可看到内容，很多人会碰到浏览器一直在转圈但是就是加载不出来的问题，一般情况下是因为端口占用的缘故，因为4000这个端口太常见了，解决端口冲突问题。<br><img src="/assets/img/hexosettings3.png" alt=""></p>
+
+<p>hexo s是开启本地预览服务，打开浏览器访问 <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 即可看到内容，很多人会碰到浏览器一直在转圈但是就是加载不出来的问题，一般情况下是因为端口占用的缘故，因为4000这个端口太常见了，解决端口冲突问题。<br><img src="/assets/img/hexosettings3.png" alt></p>
 
       
 
@@ -327,7 +333,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/hexo/20160820_hexo_githubpages_1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/hexo/20160820_hexo_githubpages_1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -341,11 +347,11 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/hexo/20160820_hexo_githubpages_2/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/hexo/20160820_hexo_githubpages_3/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          用hexo搭建githubpage(2)-主题
+          用hexo搭建githubpage(3)-定制
         
       </div>
     </a>
@@ -400,11 +406,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/hexo/20160820_hexo_githubpages_1/",
+  id: "//blog.mx1117.com/hexo/20160820_hexo_githubpages_1/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -544,11 +550,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,7 +566,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,15 +574,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -593,10 +599,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

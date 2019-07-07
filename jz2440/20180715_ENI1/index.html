@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>外部中断处理 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="中断设置">
 <meta name="keywords" content="embed,jz2440">
 <meta property="og:type" content="article">
 <meta property="og:title" content="外部中断处理">
-<meta property="og:url" content="//mx1117.com/jz2440/20180715_ENI1/index.html">
+<meta property="og:url" content="//blog.mx1117.com/jz2440/20180715_ENI1/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="中断设置">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -202,6 +202,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="中断设置"><a href="#中断设置" class="headerlink" title="中断设置"></a>中断设置</h2><a id="more"></a>
+
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">/* SRCPND 用来显示哪个中断产生了, 需要清除对应位</span><br><span class="line"> * bit0-eint0</span><br><span class="line"> * bit2-eint2</span><br><span class="line"> * bit5-eint8_23</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/* INTMSK 用来屏蔽中断, 1-masked</span><br><span class="line"> * bit0-eint0</span><br><span class="line"> * bit2-eint2</span><br><span class="line"> * bit5-eint8_23</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/* INTPND 用来显示当前优先级最高的、正在发生的中断, 需要清除对应位</span><br><span class="line"> * bit0-eint0</span><br><span class="line"> * bit2-eint2</span><br><span class="line"> * bit5-eint8_23</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/* INTOFFSET : 用来显示INTPND中哪一位被设置为1</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/* 初始化中断控制器 */</span><br><span class="line">void interrupt_init(void)</span><br><span class="line">&#123;</span><br><span class="line">	INTMSK &amp;= ~((1&lt;&lt;0) | (1&lt;&lt;2) | (1&lt;&lt;5));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 初始化按键, 设为中断源 */</span><br><span class="line">void key_eint_init(void)</span><br><span class="line">&#123;</span><br><span class="line">	/* 配置GPIO为中断引脚 */</span><br><span class="line">	GPFCON &amp;= ~((3&lt;&lt;0) | (3&lt;&lt;4));</span><br><span class="line">	GPFCON |= ((2&lt;&lt;0) | (2&lt;&lt;4));   /* S2,S3被配置为中断引脚 */</span><br><span class="line"></span><br><span class="line">	GPGCON &amp;= ~((3&lt;&lt;6) | (3&lt;&lt;11));</span><br><span class="line">	GPGCON |= ((2&lt;&lt;6) | (2&lt;&lt;11));   /* S4,S5被配置为中断引脚 */</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	/* 设置中断触发方式: 双边沿触发 */</span><br><span class="line">	EXTINT0 |= (7&lt;&lt;0) | (7&lt;&lt;8);     /* S2,S3 */</span><br><span class="line">	EXTINT1 |= (7&lt;&lt;12);             /* S4 */</span><br><span class="line">	EXTINT2 |= (7&lt;&lt;12);             /* S5 */</span><br><span class="line"></span><br><span class="line">	/* 设置EINTMASK使能eint11,19 */</span><br><span class="line">	EINTMASK &amp;= ~((1&lt;&lt;11) | (1&lt;&lt;19));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
@@ -306,7 +307,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/jz2440/20180715_ENI1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/jz2440/20180715_ENI1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -366,11 +367,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/jz2440/20180715_ENI1/",
+  id: "//blog.mx1117.com/jz2440/20180715_ENI1/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -486,11 +487,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,7 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,15 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,10 +536,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

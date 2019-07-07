@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>stm8s之NEC协议红外发射 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
 <meta name="keywords" content="embed,单片机,stm8">
 <meta property="og:type" content="article">
 <meta property="og:title" content="stm8s之NEC协议红外发射">
-<meta property="og:url" content="//mx1117.com/stm8/20170715_NECOUT/index.html">
+<meta property="og:url" content="//blog.mx1117.com/stm8/20170715_NECOUT/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -201,8 +201,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。<br><a id="more"></a><br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>                              </span><br><span class="line">//introduce:        红外传感器发送驱动        </span><br><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>     </span><br><span class="line"><span class="section">#include "stm8s.h"   </span></span><br><span class="line"><span class="section">#include "delay.h"</span></span><br><span class="line"></span><br><span class="line">/<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">*外部变量*</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>/    </span><br><span class="line">static void TIM1_Config(void);</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  CLK<span class="emphasis">_HSIPrescalerConfig(CLK_</span>PRESCALER_HSIDIV1);</span><br><span class="line">  CLK_HSICmd(ENABLE);</span><br><span class="line">  delay_init(16);</span><br><span class="line">  u32 Send_Val=0x535A00FF;</span><br><span class="line">  u8 i;  </span><br><span class="line">  GPIO<span class="emphasis">_Init(SZ_</span>INFRARED<span class="emphasis">_SEND_</span>PORT, GPIO<span class="emphasis">_MODE_</span>OUT<span class="emphasis">_PP_</span>HIGH_FAST);</span><br><span class="line">  TIM1_Config();</span><br><span class="line">  while(1)&#123;</span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(421);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    delay_ms(9);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(4);</span></span><br><span class="line"><span class="code">    delay_us(500);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    for(i=0;i&lt;32;i++)&#123;</span></span><br><span class="line"><span class="code">      if((0x80000000&gt;&gt;i)&amp;Send_Val)&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(1690);</span></span><br><span class="line"><span class="code">      &#125;else&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">    delay_ms(1);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(1000);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">定时器配置PWM如下：</span><br><span class="line"></span><br><span class="line">static void TIM1_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">  </span><br><span class="line">  TIM2_DeInit();</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_TimeBaseInit(TIM2_</span>PRESCALER_1, 421);</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_OC3Init(TIM2_</span>OCMODE<span class="emphasis">_PWM1, TIM2_</span>OUTPUTSTATE<span class="emphasis">_DISABLE, 0, TIM2_</span>OCPOLARITY_HIGH);</span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_CCxCmd(TIM2_</span>CHANNEL_3, ENABLE);</span><br><span class="line">  TIM2_Cmd(ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        <p>单片机采用stm8s103f3p6，发送引脚为TIM2的oc3即PA3引脚。</p>
+<a id="more"></a>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>                              </span><br><span class="line">//introduce:        红外传感器发送驱动        </span><br><span class="line">//<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>     </span><br><span class="line"><span class="section">#include "stm8s.h"   </span></span><br><span class="line"><span class="section">#include "delay.h"</span></span><br><span class="line"></span><br><span class="line">/<span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">*外部变量*</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="strong">*****</span><span class="emphasis">***</span>/    </span><br><span class="line">static void TIM1_Config(void);</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  CLK<span class="emphasis">_HSIPrescalerConfig(CLK_</span>PRESCALER_HSIDIV1);</span><br><span class="line">  CLK_HSICmd(ENABLE);</span><br><span class="line">  delay_init(16);</span><br><span class="line">  u32 Send_Val=0x535A00FF;</span><br><span class="line">  u8 i;  </span><br><span class="line">  GPIO<span class="emphasis">_Init(SZ_</span>INFRARED<span class="emphasis">_SEND_</span>PORT, GPIO<span class="emphasis">_MODE_</span>OUT<span class="emphasis">_PP_</span>HIGH_FAST);</span><br><span class="line">  TIM1_Config();</span><br><span class="line">  while(1)&#123;</span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(421);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    delay_ms(9);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(4);</span></span><br><span class="line"><span class="code">    delay_us(500);</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    for(i=0;i&lt;32;i++)&#123;</span></span><br><span class="line"><span class="code">      if((0x80000000&gt;&gt;i)&amp;Send_Val)&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(1690);</span></span><br><span class="line"><span class="code">      &#125;else&#123;</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">        TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">        delay_us(560);</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(130);</span></span><br><span class="line"><span class="code">    delay_ms(1);</span></span><br><span class="line"><span class="code">    TIM2_SetCompare3(0);</span></span><br><span class="line"><span class="code">    delay_ms(1000);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">定时器配置PWM如下：</span><br><span class="line"></span><br><span class="line">static void TIM1_Config(void)</span><br><span class="line">&#123;</span><br><span class="line">  </span><br><span class="line">  TIM2_DeInit();</span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_TimeBaseInit(TIM2_</span>PRESCALER_1, 421);</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_OC3Init(TIM2_</span>OCMODE<span class="emphasis">_PWM1, TIM2_</span>OUTPUTSTATE<span class="emphasis">_DISABLE, 0, TIM2_</span>OCPOLARITY_HIGH);</span><br><span class="line">  </span><br><span class="line">  TIM2<span class="emphasis">_CCxCmd(TIM2_</span>CHANNEL_3, ENABLE);</span><br><span class="line">  TIM2_Cmd(ENABLE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -310,7 +311,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/stm8/20170715_NECOUT/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/stm8/20170715_NECOUT/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -370,11 +371,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/stm8/20170715_NECOUT/",
+  id: "//blog.mx1117.com/stm8/20170715_NECOUT/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -490,11 +491,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,7 +507,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,15 +515,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -539,10 +540,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

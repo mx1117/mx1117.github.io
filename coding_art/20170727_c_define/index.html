@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>c语言define用法 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1.简单的宏定义#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）">
 <meta name="keywords" content="embed,c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="c语言define用法">
-<meta property="og:url" content="//mx1117.com/coding_art/20170727_c_define/index.html">
+<meta property="og:url" content="//blog.mx1117.com/coding_art/20170727_c_define/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="1.简单的宏定义#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -201,7 +201,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-简单的宏定义"><a href="#1-简单的宏定义" class="headerlink" title="1.简单的宏定义"></a>1.简单的宏定义</h1><p>#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）<br><a id="more"></a><br>典型错误：</p>
+        <h1 id="1-简单的宏定义"><a href="#1-简单的宏定义" class="headerlink" title="1.简单的宏定义"></a>1.简单的宏定义</h1><p>#define 标识符 替换列表（替换列表可以是数，字符串字面量，标点符号，运算符，标识符，关键字，字符常量。注意：替换列表是可以为空的）</p>
+<a id="more"></a>
+<p>典型错误：</p>
 <p>#define N = 100<br>int a[N]; /<em>这样会成为int a[= 100],这里会处理成为一种标识记号一样</em>/</p>
 <p>#define N 100;<br>int a[N]; /<em>带分号的定义会成为int a[100;],这是一种很常见的错误</em>/</p>
 <p>#define pin (int<em>);<br>pin a,b;<br>int</em> a,b; /<em>本意是a和b都是int型指针，但是实际上变成int</em> a,b;a是int型指针，而b是int型变量。这是应该使用typedef来代替define，这样a和b就都是int型指针了。*/<br>典型的使用方法：<br>使用宏定义我们可以自己根据自己的习惯来定义甚至改变C语言的语法习惯，例如：</p>
@@ -216,7 +218,7 @@ var _hmt = _hmt || [];
 <p>#define B（x) #@x</p>
 <p>#define C（x) #x<br>x=1<br>替换为：<br>A(1)——&gt; T_1 （T_##x,##符号是记号粘黏符号，将前后的字符粘黏起来。）<br>B(1)——&gt; ‘1’ （ #@x , #@ 符号会将宏的参数进行字符串字面量化，并且加‘’号）<br>C(1)——&gt; “1” （ #x ,#符号会将宏的参数进行字符串字面量化，并且加””号）</p>
 <h1 id="4-define的多行定义"><a href="#4-define的多行定义" class="headerlink" title="4.define的多行定义"></a>4.define的多行定义</h1><p>define可以替代多行的代码，在每一个换行的时候加上一个”\”</p>
-<p>#define MAX(X,Y) do { \<br>语句1; \<br>语句2; \<br>/<em> 注释的写法 </em>/ \<br>} while(0) /<em> (no trailing ; ) </em>/ \</p>
+<p>#define MAX(X,Y) do { <br>语句1; <br>语句2; <br>/* 注释的写法 <em>/ <br>} while(0) /</em> (no trailing ; ) */ \</p>
 <p>#5.在大规模的开发过程中，特别是跨平台和系统的软件里，define最重要的功能是条件编译。</p>
 <p>#ifdef WINDOWS<br>……<br>……</p>
 <p>#endif</p>
@@ -225,7 +227,7 @@ var _hmt = _hmt || [];
 <h1 id="6-取消宏"><a href="#6-取消宏" class="headerlink" title="6.取消宏"></a>6.取消宏</h1><p>#undef 标识符</p>
 <h1 id="7-条件编译"><a href="#7-条件编译" class="headerlink" title="7.条件编译"></a>7.条件编译</h1><p>#ifdef XXX…(#else) … #endif</p>
 <h1 id="8-预定义宏"><a href="#8-预定义宏" class="headerlink" title="8.预定义宏"></a>8.预定义宏</h1><p>在C语言中收录了一些有用的宏，这些宏是提供当前编译信息的。<br><strong>LINE</strong>        被编译文件的行数<br>（整型）<br><strong>FILE</strong>  被编译文件的名字 （字符型）<br><strong>DATE</strong>  编译日期 （字符型）<br><strong>TIME</strong>  编译时间 （字符型）<br><strong>STDC</strong>  如果编译器接受标准C，那么值为1. （整型）<br>通常我们在编译的时候我们可以用这些预定义的宏来进行排错，例如：<br>一般情况下，当出现除零的情况时编译器是没有提示的，我们可以自定义一个解决办法。</p>
-<p>#define CHECKZERO(divisor)\<br>if(divisor==0)\<br>printf(“<strong><em>ATTEMPT TO DIVIDE BY ZERO IN LINE %d of file %s </em></strong>\n”,<strong>LINE</strong>,<strong>FILE</strong>);\<br>引用方法<br>CHECKZERO(j);<br>k=i/j;</p>
+<p>#define CHECKZERO(divisor)<br>if(divisor==0)<br>printf(“<strong>*ATTEMPT TO DIVIDE BY ZERO IN LINE %d of file %s *</strong>\n”,<strong>LINE</strong>,<strong>FILE</strong>);<br>引用方法<br>CHECKZERO(j);<br>k=i/j;</p>
 
       
 
@@ -330,7 +332,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/coding_art/20170727_c_define/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/coding_art/20170727_c_define/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -403,11 +405,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/coding_art/20170727_c_define/",
+  id: "//blog.mx1117.com/coding_art/20170727_c_define/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -547,11 +549,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -559,7 +565,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -567,15 +573,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,10 +598,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

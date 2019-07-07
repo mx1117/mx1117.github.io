@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>python入门（一） | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在人工智能和大数据的浪潮下，python成为了当下最火的语言。">
-<meta name="keywords" content="python,code">
+<meta name="keywords" content="code,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python入门（一）">
-<meta property="og:url" content="//mx1117.com/python/20171017_pythonlearning_1/index.html">
+<meta property="og:url" content="//blog.mx1117.com/python/20171017_pythonlearning_1/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="在人工智能和大数据的浪潮下，python成为了当下最火的语言。">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -201,7 +201,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在人工智能和大数据的浪潮下，python成为了当下最火的语言。<br><a id="more"></a><br>学习python自然是需要安装python的了。所以第一步先安装python环境。</p>
+        <p>在人工智能和大数据的浪潮下，python成为了当下最火的语言。</p>
+<a id="more"></a>
+<p>学习python自然是需要安装python的了。所以第一步先安装python环境。</p>
 <h2 id="Python-环境搭建"><a href="#Python-环境搭建" class="headerlink" title="Python 环境搭建"></a>Python 环境搭建</h2><p>本章节我们将向大家介绍如何在本地搭建Python开发环境。<br>Python可应用于多平台包括 windows,Linux 和 Mac OS X。<br>你可以通过终端窗口输入 “python” 命令来查看本地是否已经安装Python以及Python的安装版本。</p>
 <h3 id="Python下载"><a href="#Python下载" class="headerlink" title="Python下载"></a>Python下载</h3><p>Python最新源码，二进制文档，新闻资讯等可以在Python的官网查看到：<br>Python官网：<a href="https://www.python.org/" target="_blank" rel="noopener">https://www.python.org/</a><br>你可以在以下链接中下载 Python 的文档，你可以下载 HTML、PDF 和 PostScript 等格式的文档。<br>Python文档下载地址：<a href="https://www.python.org/doc/" target="_blank" rel="noopener">https://www.python.org/doc/</a></p>
 <h3 id="Python安装"><a href="#Python安装" class="headerlink" title="Python安装"></a>Python安装</h3><p>Python已经被移植在许多平台上（经过改动使它能够工作在不同平台上）。<br>您需要下载适用于您使用平台的二进制代码，然后安装Python。<br>如果您平台的二进制代码是不可用的，你需要使用C编译器手动编译源代码。<br>编译的源代码，功能上有更多的选择性， 为python安装提供了更多的灵活性。<br>以下是各个平台安装包的下载地址：</p>
@@ -214,70 +216,70 @@ var _hmt = _hmt || [];
 <table>
 <thead>
 <tr>
-<th style="text-align:center">变量名</th>
+<th align="center">变量名</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">PYTHONPATH</td>
+<tbody><tr>
+<td align="center">PYTHONPATH</td>
 <td>PYTHONPATH是Python搜索路径，默认我们import的模块都会从PYTHONPATH里面寻找。</td>
 </tr>
 <tr>
-<td style="text-align:center">PYTHONSTARTUP</td>
+<td align="center">PYTHONSTARTUP</td>
 <td>Python启动后，先寻找PYTHONSTARTUP环境变量，然后执行此变量指定的文件中的代码。</td>
 </tr>
 <tr>
-<td style="text-align:center">PYTHONCASEOK</td>
+<td align="center">PYTHONCASEOK</td>
 <td>加入PYTHONCASEOK的环境变量, 就会使python导入模块的时候不区分大小写。</td>
 </tr>
 <tr>
-<td style="text-align:center">PYTHONHOME</td>
+<td align="center">PYTHONHOME</td>
 <td>另一种模块搜索路径。它通常内嵌于的PYTHONSTARTUP或PYTHONPATH目录中，使得两个模块库更容易切换。</td>
 </tr>
-</tbody>
-</table>
-<h3 id="运行Python"><a href="#运行Python" class="headerlink" title="运行Python"></a>运行Python</h3><p>有三种方式可以运行Python：<br>1.交互式解释器：<br>你可以通过命令行窗口进入python并开在交互式解释器中开始编写Python代码。<br>你可以在Unix，DOS或任何其他提供了命令行或者shell的系统进行python编码工作。<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python <span class="meta"># Unix/Linux </span></span><br><span class="line"></span><br><span class="line">或者 </span><br><span class="line"></span><br><span class="line"><span class="symbol">C:</span>&gt;python <span class="meta"># Windows/DOS</span></span><br></pre></td></tr></table></figure></p>
+</tbody></table>
+<h3 id="运行Python"><a href="#运行Python" class="headerlink" title="运行Python"></a>运行Python</h3><p>有三种方式可以运行Python：<br>1.交互式解释器：<br>你可以通过命令行窗口进入python并开在交互式解释器中开始编写Python代码。<br>你可以在Unix，DOS或任何其他提供了命令行或者shell的系统进行python编码工作。</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python <span class="meta"># Unix/Linux </span></span><br><span class="line"></span><br><span class="line">或者 </span><br><span class="line"></span><br><span class="line"><span class="symbol">C:</span>&gt;python <span class="meta"># Windows/DOS</span></span><br></pre></td></tr></table></figure>
+
 <p>以下为Python命令行参数：</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:center">选项</th>
+<th align="center">选项</th>
 <th>描述</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">-d</td>
+<tbody><tr>
+<td align="center">-d</td>
 <td>在解析时显示调试信息。</td>
 </tr>
 <tr>
-<td style="text-align:center">-O</td>
+<td align="center">-O</td>
 <td>生成优化代码 ( .pyo 文件 )</td>
 </tr>
 <tr>
-<td style="text-align:center">-S</td>
+<td align="center">-S</td>
 <td>启动时不引入查找Python路径的位置</td>
 </tr>
 <tr>
-<td style="text-align:center">-V</td>
+<td align="center">-V</td>
 <td>输出Python版本号</td>
 </tr>
 <tr>
-<td style="text-align:center">-X</td>
+<td align="center">-X</td>
 <td>从 1.6版本之后基于内建的异常（仅仅用于字符串）已过时。</td>
 </tr>
 <tr>
-<td style="text-align:center">-c cmd</td>
+<td align="center">-c cmd</td>
 <td>执行 Python 脚本，并将运行结果作为 cmd 字符串。</td>
 </tr>
 <tr>
-<td style="text-align:center">file</td>
+<td align="center">file</td>
 <td>在给定的python文件执行python脚本。</td>
 </tr>
-</tbody>
-</table>
-<p>2.命令行脚本<br>在你的应用程序中通过引入解释器可以在命令行中执行Python脚本，如下所示：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python <span class="keyword">script</span>.py <span class="comment"># Unix/Linux </span></span><br><span class="line"></span><br><span class="line">或者 </span><br><span class="line"></span><br><span class="line">C:&gt;python <span class="keyword">script</span>.py <span class="comment"># Windows/DOS</span></span><br></pre></td></tr></table></figure></p>
+</tbody></table>
+<p>2.命令行脚本<br>在你的应用程序中通过引入解释器可以在命令行中执行Python脚本，如下所示：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python <span class="keyword">script</span>.py <span class="comment"># Unix/Linux </span></span><br><span class="line"></span><br><span class="line">或者 </span><br><span class="line"></span><br><span class="line">C:&gt;python <span class="keyword">script</span>.py <span class="comment"># Windows/DOS</span></span><br></pre></td></tr></table></figure>
+
 <p>注意：在执行脚本时，请检查脚本是否有可执行权限。</p>
 <p>3.集成开发环境（IDE：Integrated Development Environment）: PyCharm<br>PyCharm 是由 JetBrains 打造的一款 Python IDE，支持 macOS、 Windows、 Linux 系统。<br>PyCharm 功能 : 调试、语法高亮、Project管理、代码跳转、智能提示、自动完成、单元测试、版本控制……<br>PyCharm 下载地址 : <a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/download/</a><br>PyCharm 安装地址：<a href="http://www.runoob.com/w3cnote/pycharm-windows-install.html" target="_blank" rel="noopener">http://www.runoob.com/w3cnote/pycharm-windows-install.html</a></p>
 
@@ -324,11 +326,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -384,7 +386,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/python/20171017_pythonlearning_1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/python/20171017_pythonlearning_1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -457,11 +459,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/python/20171017_pythonlearning_1/",
+  id: "//blog.mx1117.com/python/20171017_pythonlearning_1/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -601,11 +603,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -613,7 +619,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -621,15 +627,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,10 +652,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

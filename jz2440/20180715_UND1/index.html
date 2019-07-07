@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>undefine异常中断处理 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="编写嵌入式系统时，总归会涉及到代码重定位的问题">
 <meta name="keywords" content="embed,jz2440">
 <meta property="og:type" content="article">
 <meta property="og:title" content="undefine异常中断处理">
-<meta property="og:url" content="//mx1117.com/jz2440/20180715_UND1/index.html">
+<meta property="og:url" content="//blog.mx1117.com/jz2440/20180715_UND1/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="编写嵌入式系统时，总归会涉及到代码重定位的问题">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -202,6 +202,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="编写嵌入式系统时，总归会涉及到代码重定位的问题"><a href="#编写嵌入式系统时，总归会涉及到代码重定位的问题" class="headerlink" title="编写嵌入式系统时，总归会涉及到代码重定位的问题"></a>编写嵌入式系统时，总归会涉及到代码重定位的问题</h2><a id="more"></a>
+
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="symbol">.text</span></span><br><span class="line"><span class="symbol">.global</span> _start</span><br><span class="line"></span><br><span class="line"><span class="symbol">_start</span>:</span><br><span class="line">	<span class="keyword">b </span>reset  <span class="comment">/* vector 0 : reset */</span></span><br><span class="line">	<span class="keyword">b </span>do_und <span class="comment">/* vector 4 : und */</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">do_und</span>:</span><br><span class="line">	<span class="comment">/* 执行到这里之前:</span></span><br><span class="line"><span class="comment">	 * 1. lr_und保存有被中断模式中的下一条即将执行的指令的地址</span></span><br><span class="line"><span class="comment">	 * 2. SPSR_und保存有被中断模式的CPSR</span></span><br><span class="line"><span class="comment">	 * 3. CPSR中的M4-M0被设置为11011, 进入到und模式</span></span><br><span class="line"><span class="comment">	 * 4. 跳到0x4的地方执行程序 </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* sp_und未设置, 先设置它 */</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">sp</span>, <span class="number">=0x34000000</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 在und异常处理函数中有可能会修改r0-r12, 所以先保存 */</span></span><br><span class="line">	<span class="comment">/* lr是异常处理完后的返回地址, 也要保存 */</span></span><br><span class="line">	<span class="keyword">stmdb </span><span class="built_in">sp</span>!, &#123;<span class="built_in">r0</span>-<span class="built_in">r12</span>, <span class="built_in">lr</span>&#125;  </span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 保存现场 */</span></span><br><span class="line">	<span class="comment">/* 处理und异常 */</span></span><br><span class="line">	<span class="keyword">mrs </span><span class="built_in">r0</span>, <span class="keyword">cpsr</span></span><br><span class="line"><span class="keyword">	</span><span class="keyword">ldr </span><span class="built_in">r1</span>, <span class="symbol">=und_string</span></span><br><span class="line">	<span class="keyword">bl </span>printException</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* 恢复现场 */</span></span><br><span class="line">	<span class="keyword">ldmia </span><span class="built_in">sp</span>!, &#123;<span class="built_in">r0</span>-<span class="built_in">r12</span>, <span class="built_in">pc</span>&#125;^  <span class="comment">/* ^会把spsr的值恢复到cpsr里 */</span></span><br><span class="line">	</span><br><span class="line"><span class="symbol">und_string</span>:</span><br><span class="line">	.<span class="keyword">string </span><span class="string">"undefined instruction exception"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="symbol">reset</span>:</span><br><span class="line">	<span class="comment">/* 关闭看门狗 */</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r0</span>, <span class="number">=0x53000000</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r1</span>, <span class="number">=0</span></span><br><span class="line">	<span class="keyword">str </span><span class="built_in">r1</span>, [<span class="built_in">r0</span>]</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 设置MPLL, FCLK : HCLK : PCLK = 400m : 100m : 50m */</span></span><br><span class="line">	<span class="comment">/* LOCKTIME(0x4C000000) = 0xFFFFFFFF */</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r0</span>, <span class="number">=0x4C000000</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r1</span>, <span class="number">=0xFFFFFFFF</span></span><br><span class="line">	<span class="keyword">str </span><span class="built_in">r1</span>, [<span class="built_in">r0</span>]</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* CLKDIVN(0x4C000014) = 0X5, tFCLK:tHCLK:tPCLK = 1:4:8  */</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r0</span>, <span class="number">=0x4C000014</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r1</span>, <span class="number">=0x5</span></span><br><span class="line">	<span class="keyword">str </span><span class="built_in">r1</span>, [<span class="built_in">r0</span>]</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 设置CPU工作于异步模式 */</span></span><br><span class="line">	<span class="keyword">mrc </span><span class="built_in">p15</span>,<span class="number">0</span>,<span class="built_in">r0</span>,<span class="built_in">c1</span>,<span class="built_in">c0</span>,<span class="number">0</span></span><br><span class="line">	<span class="keyword">orr </span><span class="built_in">r0</span>,<span class="built_in">r0</span>,<span class="number">#0xc0000000</span>   //R1_nF:OR:R1_iA</span><br><span class="line">	mcr <span class="built_in">p15</span>,<span class="number">0</span>,<span class="built_in">r0</span>,<span class="built_in">c1</span>,<span class="built_in">c0</span>,<span class="number">0</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 设置MPLLCON(0x4C000004) = (92&lt;&lt;12)|(1&lt;&lt;4)|(1&lt;&lt;0) </span></span><br><span class="line"><span class="comment">	 *  m = MDIV+8 = 92+8=100</span></span><br><span class="line"><span class="comment">	 *  p = PDIV+2 = 1+2 = 3</span></span><br><span class="line"><span class="comment">	 *  s = SDIV = 1</span></span><br><span class="line"><span class="comment">	 *  FCLK = 2*m*Fin/(p*2^s) = 2*100*12/(3*2^1)=400M</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r0</span>, <span class="number">=0x4C000004</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r1</span>, =(<span class="number">92</span>&lt;&lt;<span class="number">12</span>)<span class="title">|(1&lt;&lt;4)|</span>(<span class="number">1</span>&lt;&lt;<span class="number">0</span>)</span><br><span class="line">	<span class="keyword">str </span><span class="built_in">r1</span>, [<span class="built_in">r0</span>]</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 一旦设置PLL, 就会锁定lock time直到PLL输出稳定</span></span><br><span class="line"><span class="comment">	 * 然后CPU工作于新的频率FCLK</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 设置内存: sp 栈 */</span></span><br><span class="line">	<span class="comment">/* 分辨是nor/nand启动</span></span><br><span class="line"><span class="comment">	 * 写0到0地址, 再读出来</span></span><br><span class="line"><span class="comment">	 * 如果得到0, 表示0地址上的内容被修改了, 它对应ram, 这就是nand启动</span></span><br><span class="line"><span class="comment">	 * 否则就是nor启动</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">mov </span><span class="built_in">r1</span>, <span class="number">#0</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r0</span>, [<span class="built_in">r1</span>] <span class="comment">/* 读出原来的值备份 */</span></span><br><span class="line">	<span class="keyword">str </span><span class="built_in">r1</span>, [<span class="built_in">r1</span>] <span class="comment">/* 0-&gt;[0] */</span> </span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">r2</span>, [<span class="built_in">r1</span>] <span class="comment">/* r2=[0] */</span></span><br><span class="line">	<span class="keyword">cmp </span><span class="built_in">r1</span>, <span class="built_in">r2</span>   <span class="comment">/* r1==r2? 如果相等表示是NAND启动 */</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">sp</span>, <span class="number">=0x40000000</span>+<span class="number">4096</span> <span class="comment">/* 先假设是nor启动 */</span></span><br><span class="line">	<span class="keyword">moveq </span><span class="built_in">sp</span>, <span class="number">#4096</span>  <span class="comment">/* nand启动 */</span></span><br><span class="line">	<span class="keyword">streq </span><span class="built_in">r0</span>, [<span class="built_in">r1</span>]   <span class="comment">/* 恢复原来的值 */</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">bl </span>sdram_init</span><br><span class="line">	//<span class="keyword">bl </span>sdram_init2	 <span class="comment">/* 用到有初始值的数组, 不是位置无关码 */</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 重定位text, rodata, data段整个程序 */</span></span><br><span class="line">	<span class="keyword">bl </span>copy2sdram</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* 清除BSS段 */</span></span><br><span class="line">	<span class="keyword">bl </span>clean_bss</span><br><span class="line"></span><br><span class="line">	<span class="keyword">bl </span>uart0_init</span><br><span class="line"></span><br><span class="line">	<span class="keyword">bl </span>print1</span><br><span class="line">	<span class="comment">/* 故意加入一条未定义指令 */</span></span><br><span class="line"><span class="symbol">und_code</span>:</span><br><span class="line">	<span class="meta">.word</span> <span class="number">0xdeadc0de</span>  <span class="comment">/* 未定义指令 */</span></span><br><span class="line">	<span class="keyword">bl </span>print2</span><br><span class="line"></span><br><span class="line">	//<span class="keyword">bl </span>main  <span class="comment">/* 使用BL命令相对跳转, 程序仍然在NOR/sram执行 */</span></span><br><span class="line">	<span class="keyword">ldr </span><span class="built_in">pc</span>, <span class="symbol">=main</span>  <span class="comment">/* 绝对跳转, 跳到SDRAM */</span></span><br><span class="line"></span><br><span class="line"><span class="symbol">halt</span>:</span><br><span class="line">	<span class="keyword">b </span>halt</span><br></pre></td></tr></table></figure>
       
 
@@ -306,7 +307,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/jz2440/20180715_UND1/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/jz2440/20180715_UND1/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -366,11 +367,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/jz2440/20180715_UND1/",
+  id: "//blog.mx1117.com/jz2440/20180715_UND1/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -486,11 +487,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,7 +503,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -506,15 +511,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,10 +536,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

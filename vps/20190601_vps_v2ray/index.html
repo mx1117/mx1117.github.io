@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>v2ray服务器配置 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装wgetvps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装：1sudo yum -y install wget">
+  <meta name="description" content="安装wgetvps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装： 1sudo yum -y install wget">
 <meta name="keywords" content="sources,vps,v2ray">
 <meta property="og:type" content="article">
 <meta property="og:title" content="v2ray服务器配置">
-<meta property="og:url" content="//mx1117.com/vps/20190601_vps_v2ray/index.html">
+<meta property="og:url" content="//blog.mx1117.com/vps/20190601_vps_v2ray/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
-<meta property="og:description" content="安装wgetvps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装：1sudo yum -y install wget">
+<meta property="og:description" content="安装wgetvps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装： 1sudo yum -y install wget">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-07T06:35:25.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="v2ray服务器配置">
-<meta name="twitter:description" content="安装wgetvps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装：1sudo yum -y install wget">
+<meta name="twitter:description" content="安装wgetvps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装： 1sudo yum -y install wget">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -201,17 +201,28 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h2><p>vps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure></p>
+        <h2 id="安装wget"><a href="#安装wget" class="headerlink" title="安装wget"></a>安装wget</h2><p>vps默认的centos中没有安装wget，我们需要自己安装，执行如下命令进行安装：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum -y <span class="keyword">install</span> wget</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
-<h2 id="下载脚本"><a href="#下载脚本" class="headerlink" title="下载脚本"></a>下载脚本</h2><p>安装完wget之后就可以进行下载操作了，如下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//install.direct/<span class="keyword">go</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="安装unzip"><a href="#安装unzip" class="headerlink" title="安装unzip"></a>安装unzip</h2><p>因为centos不支持apt-get，我们需要安装unzip，详见官方说明：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> zip unzip</span><br></pre></td></tr></table></figure></p>
+<h2 id="下载脚本"><a href="#下载脚本" class="headerlink" title="下载脚本"></a>下载脚本</h2><p>安装完wget之后就可以进行下载操作了，如下：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http<span class="variable">s:</span>//install.direct/<span class="keyword">go</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="安装unzip"><a href="#安装unzip" class="headerlink" title="安装unzip"></a>安装unzip</h2><p>因为centos不支持apt-get，我们需要安装unzip，详见官方说明：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> zip unzip</span><br></pre></td></tr></table></figure>
+
 <h2 id="执行安装"><a href="#执行安装" class="headerlink" title="执行安装"></a>执行安装</h2><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo bash <span class="keyword">go</span>.<span class="keyword">sh</span></span><br></pre></td></tr></table></figure>
-<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><p>在首次安装完成之后，V2Ray不会自动启动，需要手动运行上述启动命令。而在已经运行V2Ray的VPS上再次执行安装脚本，安装脚本会自动停止V2Ray 进程，升级V2Ray程序，然后自动运行V2Ray。在升级过程中，配置文件不会被修改。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 启动</span></span></span><br><span class="line">sudo systemctl start v2ray</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 停止</span></span></span><br><span class="line">sudo systemctl stop v2ray</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 重启</span></span></span><br><span class="line">sudo systemctl restart v2ray</span><br></pre></td></tr></table></figure></p>
+
+<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><p>在首次安装完成之后，V2Ray不会自动启动，需要手动运行上述启动命令。而在已经运行V2Ray的VPS上再次执行安装脚本，安装脚本会自动停止V2Ray 进程，升级V2Ray程序，然后自动运行V2Ray。在升级过程中，配置文件不会被修改。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 启动</span></span></span><br><span class="line">sudo systemctl start v2ray</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 停止</span></span></span><br><span class="line">sudo systemctl stop v2ray</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 重启</span></span></span><br><span class="line">sudo systemctl restart v2ray</span><br></pre></td></tr></table></figure>
+
 <p>关于软件更新：更新 V2Ray 的方法是再次执行安装脚本！再次执行安装脚本！再次执行安装脚本！</p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>如果你按照上面的命令执行安装完成之后，服务端其实是不需要再进行任何配置的，配置文件位于/etc/v2ray/config.json，使用<br>cat /etc/v2ray/config.json<br>查看配置信息。接下来进行客户端配置就行了。</p>
 <p>说明：</p>
 <p>配置文件中的id、端口、alterId需要和客户端的配置保持一致；<br>服务端使用脚本安装成功之后默认就是vmess协议；<br>配置完成之后重启v2ray。</p>
-<h2 id="防火墙开放端口"><a href="#防火墙开放端口" class="headerlink" title="防火墙开放端口"></a>防火墙开放端口</h2><p>有的vps端口默认不开放，可能导致连接不成功，如果有这种情况，详细配置，见CentOs开放端口的方法—二、firewalld。<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 查看已开放端口</span></span><br><span class="line">firewall-cmd <span class="attribute">--zone</span>=public --list-ports</span><br><span class="line"></span><br><span class="line"><span class="comment">## 添加开放端口</span></span><br><span class="line">firewall-cmd <span class="attribute">--zone</span>=public <span class="attribute">--add-port</span>=80/tcp --permanent</span><br></pre></td></tr></table></figure></p>
+<h2 id="防火墙开放端口"><a href="#防火墙开放端口" class="headerlink" title="防火墙开放端口"></a>防火墙开放端口</h2><p>有的vps端口默认不开放，可能导致连接不成功，如果有这种情况，详细配置，见CentOs开放端口的方法—二、firewalld。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 查看已开放端口</span></span><br><span class="line">firewall-cmd <span class="attribute">--zone</span>=public --list-ports</span><br><span class="line"></span><br><span class="line"><span class="comment">## 添加开放端口</span></span><br><span class="line">firewall-cmd <span class="attribute">--zone</span>=public <span class="attribute">--add-port</span>=80/tcp --permanent</span><br></pre></td></tr></table></figure>
+
 <p>偷懒办法：安装vps控制面板，比如wdcp，宝塔面板等。</p>
 
       
@@ -321,7 +332,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/vps/20190601_vps_v2ray/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/vps/20190601_vps_v2ray/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -381,11 +392,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/vps/20190601_vps_v2ray/",
+  id: "//blog.mx1117.com/vps/20190601_vps_v2ray/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -501,11 +512,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -513,7 +528,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -521,15 +536,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -550,10 +561,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

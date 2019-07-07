@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>用hexo搭建githubpage(3)-定制 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="百度统计，不蒜子统计等配置">
 <meta name="keywords" content="hexo,code,githubpages">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用hexo搭建githubpage(3)-定制">
-<meta property="og:url" content="//mx1117.com/hexo/20160820_hexo_githubpages_3/index.html">
+<meta property="og:url" content="//blog.mx1117.com/hexo/20160820_hexo_githubpages_3/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="百度统计，不蒜子统计等配置">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="//mx1117.com/assets/img/hexosettings4.png">
-<meta property="og:image" content="//mx1117.com/assets/img/hexosettings5.png">
+<meta property="og:image" content="//blog.mx1117.com/assets/img/hexosettings4.png">
+<meta property="og:image" content="//blog.mx1117.com/assets/img/hexosettings5.png">
 <meta property="og:updated_time" content="2019-07-07T09:47:08.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用hexo搭建githubpage(3)-定制">
 <meta name="twitter:description" content="百度统计，不蒜子统计等配置">
-<meta name="twitter:image" content="//mx1117.com/assets/img/hexosettings4.png">
+<meta name="twitter:image" content="//blog.mx1117.com/assets/img/hexosettings4.png">
   
     <link rel="alternative" href="/atom.xml" title="Coder Not Cute" type="application/atom+xml">
   
@@ -51,7 +51,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -204,12 +204,17 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>百度统计，不蒜子统计等配置<br><a id="more"></a></p>
-<h1 id="1、百度统计配置"><a href="#1、百度统计配置" class="headerlink" title="1、百度统计配置"></a>1、百度统计配置</h1><p>申请账号：<a href="https://tongji.baidu.com/web/welcome/login" target="_blank" rel="noopener">https://tongji.baidu.com/web/welcome/login</a><br>在代码获取的地方只要填入key即可<br>注册的时候，填的域名和url，我选的都是<a href="https://mx1117.github.io/" target="_blank" rel="noopener">https://mx1117.github.io/</a><br><img src="/assets/img/hexosettings4.png" alt=""></p>
+        <p>百度统计，不蒜子统计等配置</p>
+<a id="more"></a>
+<h1 id="1、百度统计配置"><a href="#1、百度统计配置" class="headerlink" title="1、百度统计配置"></a>1、百度统计配置</h1><p>申请账号：<a href="https://tongji.baidu.com/web/welcome/login" target="_blank" rel="noopener">https://tongji.baidu.com/web/welcome/login</a><br>在代码获取的地方只要填入key即可<br>注册的时候，填的域名和url，我选的都是<a href="https://mx1117.github.io/" target="_blank" rel="noopener">https://mx1117.github.io/</a><br><img src="/assets/img/hexosettings4.png" alt></p>
 <h1 id="2、不蒜子网站访问量显示"><a href="#2、不蒜子网站访问量显示" class="headerlink" title="2、不蒜子网站访问量显示"></a>2、不蒜子网站访问量显示</h1><p>“不蒜子”与百度统计谷歌分析等有区别：“不蒜子”可直接将访问次数显示在您在网页上（也可不显示）；对于已经上线一段时间的网站，“不蒜子”允许您初始化首次数据。</p>
-<p>使用了不蒜子第三方的统计插件，网址：<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">http://ibruce.info/2015/04/04/busuanzi/</a><br>在themes\yilia\layout_partial下的footer.ejs中加入如下代码即可<br><img src="/assets/img/hexosettings5.png" alt=""><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--统计start--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    您是不乖的第<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>个小伙伴</span><br><span class="line">    本文总阅读量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line"><span class="comment">&lt;!--统计end--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>使用了不蒜子第三方的统计插件，网址：<a href="http://ibruce.info/2015/04/04/busuanzi/" target="_blank" rel="noopener">http://ibruce.info/2015/04/04/busuanzi/</a><br>在themes\yilia\layout_partial下的footer.ejs中加入如下代码即可<br><img src="/assets/img/hexosettings5.png" alt></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--统计start--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    您是不乖的第<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_site_uv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>个小伙伴</span><br><span class="line">    本文总阅读量<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"busuanzi_value_page_pv"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次</span><br><span class="line"><span class="comment">&lt;!--统计end--&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>busuanzi_value_site_uv和busuanzi_value_page_pv都是不蒜子提供的变量数据，你可以修改为其他的，包括其中的汉字，都是可以个人修改的哦！</p>
-<h1 id="3、备案信息的添加"><a href="#3、备案信息的添加" class="headerlink" title="3、备案信息的添加"></a>3、备案信息的添加</h1><p>如果你没备案则无需添加，在国内备案了可以添加畅言等评论系统。<br>还是上面那张添加不蒜子的图片，阴影下方就是需要加入的代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"footer-right"</span>&gt;</span><br><span class="line">&lt;a href=<span class="string">"http://www.beian.miit.gov.cn/"</span>&gt;苏ICP备<span class="number">19008250</span>号&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="3、备案信息的添加"><a href="#3、备案信息的添加" class="headerlink" title="3、备案信息的添加"></a>3、备案信息的添加</h1><p>如果你没备案则无需添加，在国内备案了可以添加畅言等评论系统。<br>还是上面那张添加不蒜子的图片，阴影下方就是需要加入的代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"footer-right"</span>&gt;</span><br><span class="line">&lt;a href=<span class="string">"http://www.beian.miit.gov.cn/"</span>&gt;苏ICP备<span class="number">19008250</span>号&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -318,7 +323,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/hexo/20160820_hexo_githubpages_3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/hexo/20160820_hexo_githubpages_3/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -332,18 +337,18 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/vps/20161012_vps_recommend/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/hexo/20160820_hexo_githubpages_2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          常用vps推荐
+          用hexo搭建githubpage(2)-主题
         
       </div>
     </a>
   
   
-    <a href="/hexo/20160820_hexo_githubpages_2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">用hexo搭建githubpage(2)-主题</div>
+    <a href="/hexo/20160820_hexo_githubpages_1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">用hexo搭建githubpage(1)-入门</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -391,11 +396,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/hexo/20160820_hexo_githubpages_3/",
+  id: "//blog.mx1117.com/hexo/20160820_hexo_githubpages_3/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -535,11 +540,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,7 +556,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -555,15 +564,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -584,10 +589,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

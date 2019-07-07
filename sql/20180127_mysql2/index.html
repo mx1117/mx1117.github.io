@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>mysql基本语法（二） | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="查询语法总结：">
-<meta name="keywords" content="python,code,mysql">
+<meta name="keywords" content="code,python,mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql基本语法（二）">
-<meta property="og:url" content="//mx1117.com/sql/20180127_mysql2/index.html">
+<meta property="og:url" content="//blog.mx1117.com/sql/20180127_mysql2/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="查询语法总结：">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -201,37 +201,90 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>查询语法总结：<br><a id="more"></a></p>
-<h1 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h1><p>使用where子句对表中的数据筛选，结果为true的行会出现在结果集中<br>语法如下：<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表名 <span class="keyword">where</span> 条件;</span><br></pre></td></tr></table></figure></p>
+        <p>查询语法总结：</p>
+<a id="more"></a>
+<h1 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h1><p>使用where子句对表中的数据筛选，结果为true的行会出现在结果集中<br>语法如下：</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> 表名 <span class="keyword">where</span> 条件;</span><br></pre></td></tr></table></figure>
+
 <p>比较运算符:<br>等于=<br>大于&gt;<br>大于等于&gt;=<br>小于&lt;<br>小于等于&lt;=<br>不等于!=或&lt;&gt;</p>
-<p>查询编号大于3的学生:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">3</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询编号不大于4的科目:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> subjects <span class="keyword">where</span> <span class="keyword">id</span>&lt;=<span class="number">4</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询姓名不是“黄蓉”的学生:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname!=<span class="string">'黄蓉'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询没被删除的学生:<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> isdelete=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
-<p>逻辑运算符:<br>and<br>or<br>not<br>查询编号大于3的女同学<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">3</span> <span class="keyword">and</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询编号小于4或没被删除的学生<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span>&lt;<span class="number">4</span> <span class="keyword">or</span> isdelete=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
-<p>模糊查询<br>like<br>%表示任意多个任意字符<br>_表示一个任意字符<br>查询姓黄的学生<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">'黄%'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询姓黄并且名字是一个字的学生<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">'黄_'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询姓黄或叫靖的学生<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">'黄%'</span> <span class="keyword">or</span> sname <span class="keyword">like</span> <span class="string">'%靖%'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>范围查询<br>in表示在一个非连续的范围内<br>查询编号是1或3或8的学生<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span>(<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>);</span><br></pre></td></tr></table></figure></p>
-<p>between … and …表示在一个连续的范围内<br>查询学生是3至8的学生<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">3</span> <span class="keyword">and</span> <span class="number">8</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询学生是3至8的男生<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">3</span> <span class="keyword">and</span> <span class="number">8</span> <span class="keyword">and</span> gender=<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<p>空判断<br>注意：null与’’是不同的<br>判空is null<br>查询没有填写地址的学生<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> hometown <span class="keyword">is</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
-<p>判非空is not null<br>查询填写了地址的学生<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> hometown <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure></p>
-<p>查询填写了地址的女生<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> hometown <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">and</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<p>查询编号大于3的学生:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询编号不大于4的科目:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> subjects <span class="keyword">where</span> <span class="keyword">id</span>&lt;=<span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询姓名不是“黄蓉”的学生:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname!=<span class="string">'黄蓉'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询没被删除的学生:</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> isdelete=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>逻辑运算符:<br>and<br>or<br>not<br>查询编号大于3的女同学</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">3</span> <span class="keyword">and</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询编号小于4或没被删除的学生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span>&lt;<span class="number">4</span> <span class="keyword">or</span> isdelete=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<p>模糊查询<br>like<br>%表示任意多个任意字符<br>_表示一个任意字符<br>查询姓黄的学生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">'黄%'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询姓黄并且名字是一个字的学生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">'黄_'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询姓黄或叫靖的学生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> sname <span class="keyword">like</span> <span class="string">'黄%'</span> <span class="keyword">or</span> sname <span class="keyword">like</span> <span class="string">'%靖%'</span>;</span><br></pre></td></tr></table></figure>
+
+<p>范围查询<br>in表示在一个非连续的范围内<br>查询编号是1或3或8的学生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">in</span>(<span class="number">1</span>,<span class="number">3</span>,<span class="number">8</span>);</span><br></pre></td></tr></table></figure>
+
+<p>between … and …表示在一个连续的范围内<br>查询学生是3至8的学生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">3</span> <span class="keyword">and</span> <span class="number">8</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询学生是3至8的男生</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> <span class="keyword">id</span> <span class="keyword">between</span> <span class="number">3</span> <span class="keyword">and</span> <span class="number">8</span> <span class="keyword">and</span> gender=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>空判断<br>注意：null与’’是不同的<br>判空is null<br>查询没有填写地址的学生</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> hometown <span class="keyword">is</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p>判非空is not null<br>查询填写了地址的学生</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> hometown <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span>;</span><br></pre></td></tr></table></figure>
+
+<p>查询填写了地址的女生</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> students <span class="keyword">where</span> hometown <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">null</span> <span class="keyword">and</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
 <p>优先级<br>小括号，not，比较运算符，逻辑运算符<br>and比or先运算，如果同时出现并希望先算or，需要结合()使用</p>
 <h1 id="聚合"><a href="#聚合" class="headerlink" title="聚合"></a>聚合</h1><p>为了快速得到统计数据，提供了5个聚合函数</p>
-<h3 id="count"><a href="#count" class="headerlink" title="count(*)"></a>count(*)</h3><p>表示计算总行数，括号中写星与列名，结果是相同的<br>查询学生总数<br><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(*) <span class="keyword">from</span> students;</span><br></pre></td></tr></table></figure></p>
-<h3 id="max-列"><a href="#max-列" class="headerlink" title="max(列)"></a>max(列)</h3><p>表示求此列的最大值<br>查询女生的编号最大值<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">max</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="min-列"><a href="#min-列" class="headerlink" title="min(列)"></a>min(列)</h3><p>表示求此列的最小值<br>查询未删除的学生最小编号<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">min</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> isdelete=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="sum-列"><a href="#sum-列" class="headerlink" title="sum(列)"></a>sum(列)</h3><p>表示求此列的和<br>查询男生的编号之后<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> gender=<span class="number">1</span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="avg-列"><a href="#avg-列" class="headerlink" title="avg(列)"></a>avg(列)</h3><p>表示求此列的平均值<br>查询未删除女生的编号平均值<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> isdelete=<span class="number">0</span> <span class="keyword">and</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="count"><a href="#count" class="headerlink" title="count(*)"></a>count(*)</h3><p>表示计算总行数，括号中写星与列名，结果是相同的<br>查询学生总数</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(*) <span class="keyword">from</span> students;</span><br></pre></td></tr></table></figure>
+
+<h3 id="max-列"><a href="#max-列" class="headerlink" title="max(列)"></a>max(列)</h3><p>表示求此列的最大值<br>查询女生的编号最大值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">max</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="min-列"><a href="#min-列" class="headerlink" title="min(列)"></a>min(列)</h3><p>表示求此列的最小值<br>查询未删除的学生最小编号</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">min</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> isdelete=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="sum-列"><a href="#sum-列" class="headerlink" title="sum(列)"></a>sum(列)</h3><p>表示求此列的和<br>查询男生的编号之后</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> gender=<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="avg-列"><a href="#avg-列" class="headerlink" title="avg(列)"></a>avg(列)</h3><p>表示求此列的平均值<br>查询未删除女生的编号平均值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">avg</span>(<span class="keyword">id</span>) <span class="keyword">from</span> students <span class="keyword">where</span> isdelete=<span class="number">0</span> <span class="keyword">and</span> gender=<span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
 <h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p>按照字段分组，表示此字段相同的数据会被放到一个组中<br>分组后，只能查询出相同的数据列，对于有差异的数据列无法出现在结果集中</p>
-<h3 id="可以对分组后的数据进行统计，做聚合运算"><a href="#可以对分组后的数据进行统计，做聚合运算" class="headerlink" title="可以对分组后的数据进行统计，做聚合运算"></a>可以对分组后的数据进行统计，做聚合运算</h3><p>语法：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列1,列2,聚合<span class="built_in">..</span>. <span class="keyword">from</span> 表名<span class="built_in"> group </span>by 列1,列2,列3<span class="built_in">..</span>.</span><br></pre></td></tr></table></figure></p>
-<p>查询男女生总数<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select gender as 性别,count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">group by gender;</span><br></pre></td></tr></table></figure></p>
-<p>查询各城市人数<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select hometown as 家乡,count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">group by hometown;</span><br></pre></td></tr></table></figure></p>
-<h3 id="分组后的数据筛选"><a href="#分组后的数据筛选" class="headerlink" title="分组后的数据筛选"></a>分组后的数据筛选</h3><p>语法：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select 列1,列2,聚合<span class="built_in">..</span>. <span class="keyword">from</span> 表名</span><br><span class="line">group by 列1,列2,列3<span class="built_in">..</span>.</span><br><span class="line">having 列1,<span class="built_in">..</span>.聚合<span class="built_in">..</span>.</span><br></pre></td></tr></table></figure></p>
-<p>having后面的条件运算符与where的相同<br>查询男生总人数<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">方案一</span><br><span class="line">select count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">where <span class="attribute">gender</span>=1;</span><br><span class="line">-----------------------------------</span><br><span class="line">方案二：</span><br><span class="line">select gender as 性别,count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">group by gender</span><br><span class="line">having <span class="attribute">gender</span>=1;</span><br></pre></td></tr></table></figure></p>
+<h3 id="可以对分组后的数据进行统计，做聚合运算"><a href="#可以对分组后的数据进行统计，做聚合运算" class="headerlink" title="可以对分组后的数据进行统计，做聚合运算"></a>可以对分组后的数据进行统计，做聚合运算</h3><p>语法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 列1,列2,聚合<span class="built_in">..</span>. <span class="keyword">from</span> 表名<span class="built_in"> group </span>by 列1,列2,列3<span class="built_in">..</span>.</span><br></pre></td></tr></table></figure>
+
+<p>查询男女生总数</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select gender as 性别,count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">group by gender;</span><br></pre></td></tr></table></figure>
+
+<p>查询各城市人数</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select hometown as 家乡,count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">group by hometown;</span><br></pre></td></tr></table></figure>
+
+<h3 id="分组后的数据筛选"><a href="#分组后的数据筛选" class="headerlink" title="分组后的数据筛选"></a>分组后的数据筛选</h3><p>语法：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select 列1,列2,聚合<span class="built_in">..</span>. <span class="keyword">from</span> 表名</span><br><span class="line">group by 列1,列2,列3<span class="built_in">..</span>.</span><br><span class="line">having 列1,<span class="built_in">..</span>.聚合<span class="built_in">..</span>.</span><br></pre></td></tr></table></figure>
+
+<p>having后面的条件运算符与where的相同<br>查询男生总人数</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">方案一</span><br><span class="line">select count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">where <span class="attribute">gender</span>=1;</span><br><span class="line">-----------------------------------</span><br><span class="line">方案二：</span><br><span class="line">select gender as 性别,count(*)</span><br><span class="line"><span class="keyword">from</span> students</span><br><span class="line">group by gender</span><br><span class="line">having <span class="attribute">gender</span>=1;</span><br></pre></td></tr></table></figure>
+
 <p>对比where与having<br>where是对from后面指定的表进行数据筛选，属于对原始数据的筛选<br>having是对group by的结果进行筛选</p>
 
       
@@ -277,11 +330,11 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">code</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -341,7 +394,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/sql/20180127_mysql2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/sql/20180127_mysql2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -401,11 +454,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/sql/20180127_mysql2/",
+  id: "//blog.mx1117.com/sql/20180127_mysql2/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -521,11 +574,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -533,7 +590,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -541,15 +598,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,10 +623,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>

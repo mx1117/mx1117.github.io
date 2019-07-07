@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <meta name="renderer" content="webkit">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="//mx1117.com">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="dns-prefetch" href="//blog.mx1117.com">
   <title>链接脚本 | Coder Not Cute</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="编写嵌入式系统时，总归会涉及到代码重定位的问题">
 <meta name="keywords" content="embed,jz2440">
 <meta property="og:type" content="article">
 <meta property="og:title" content="链接脚本">
-<meta property="og:url" content="//mx1117.com/jz2440/20180715_GNUlinker/index.html">
+<meta property="og:url" content="//blog.mx1117.com/jz2440/20180715_GNUlinker/index.html">
 <meta property="og:site_name" content="Coder Not Cute">
 <meta property="og:description" content="编写嵌入式系统时，总归会涉及到代码重定位的问题">
 <meta property="og:locale" content="default">
@@ -48,7 +48,7 @@ var _hmt = _hmt || [];
 
 
 </head>
-
+</html>
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -202,10 +202,13 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="编写嵌入式系统时，总归会涉及到代码重定位的问题"><a href="#编写嵌入式系统时，总归会涉及到代码重定位的问题" class="headerlink" title="编写嵌入式系统时，总归会涉及到代码重定位的问题"></a>编写嵌入式系统时，总归会涉及到代码重定位的问题</h2><a id="more"></a>
+
 <p>.text 代码段<br>.rodata 只读数据段<br>.bss 无初值的全局变量<br>.common 注释</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SECTIONS &#123;</span><br><span class="line">   <span class="selector-class">.text</span>   <span class="number">0</span>  : &#123; *(.text) &#125;</span><br><span class="line">   <span class="comment">//所有文件的代码段放在0地址</span></span><br><span class="line">   <span class="selector-class">.rodata</span>  : &#123; *(.rodata) &#125;</span><br><span class="line">   <span class="comment">//所有文件的只读数据段放在当前位置</span></span><br><span class="line">   <span class="selector-class">.data</span> <span class="number">0</span>x30000000 : AT(<span class="number">0</span>x800) &#123; *(.data) &#125;</span><br><span class="line">   <span class="comment">//所有文件的数据段，AT表示重定位的地址</span></span><br><span class="line">   <span class="selector-class">.bss</span>  : &#123; *(.bss) *(.COMMON) &#125;</span><br><span class="line">   <span class="comment">//注释段 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>这个里面的0x800是我们自己编辑的，那么有方法用一个自动的变量来自行检测这个值么？<br>这里有一个网站：<a href="http://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_mono/ld.html" target="_blank" rel="noopener">http://ftp.gnu.org/old-gnu/Manuals/ld-2.9.1/html_mono/ld.html</a><br>根据网站写出另一个链接脚本：</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SECTIONS &#123;</span><br><span class="line">   <span class="meta">.text</span>   <span class="number">0</span>  : &#123; *(<span class="meta">.text</span>) &#125;</span><br><span class="line">   .rodata  : &#123; *(.rodata) &#125;</span><br><span class="line">   <span class="meta">.data</span> <span class="number">0x30000000</span> : <span class="built_in">AT</span>(<span class="number">0x800</span>) </span><br><span class="line">   &#123; </span><br><span class="line">      data_load_addr = LOADADDR(<span class="meta">.data</span>)<span class="comment">;</span></span><br><span class="line">      data_start = . <span class="comment">;</span></span><br><span class="line">      *(<span class="meta">.data</span>) </span><br><span class="line">      data_end = . <span class="comment">;</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">bss_start </span>= .<span class="comment">;</span></span><br><span class="line">   .<span class="keyword">bss </span> : &#123; *(.<span class="keyword">bss) </span>*(.COMMON) &#125;</span><br><span class="line">   <span class="keyword">bss_end </span>= .<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>.号表示当前地址<br><em>号表示所有<br>利用这几句程序我们可以得到如下几个变量：<br>data_load_addr ：.data的在bin中的绝对加载地址，即为0x800<br>data_start ：/</em> data段在重定位地址, 运行时的地址 */<br>data_end ：存储data段的结束地址</p>
 <p>bss_start ：存储bss段的开始地址<br>bss_end ：存储bss段的结束地址<br>用于清除bss段的所有数据，全部清空为0</p>
 <p>这几个变量可以拿来在程序中使用。</p>
@@ -318,7 +321,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://mx1117.com/jz2440/20180715_GNUlinker/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blog.mx1117.com/jz2440/20180715_GNUlinker/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -378,11 +381,11 @@ var _hmt = _hmt || [];
 
   
   <div id="gitment-ctn"></div> 
-<link rel="stylesheet" href="/./gitment.css">
-<script src="/./gitment.js"></script>
+<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+<script src="https://jjeejj.github.io/js/gitment.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "//mx1117.com/jz2440/20180715_GNUlinker/",
+  id: "//blog.mx1117.com/jz2440/20180715_GNUlinker/",
   owner: 'true',
   repo: 'mx1117.github.io',
   oauth: {
@@ -498,11 +501,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
+                <a href="javascript:void(0)" class="js-tag color5">code</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
+                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jz2440</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -510,7 +517,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">code</a>
+                <a href="javascript:void(0)" class="js-tag color4">microbit</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,15 +525,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">sql</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">mysq</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,10 +550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">v2ray</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">githubpages</a>
               </li>
             
             <div class="clearfix"></div>
