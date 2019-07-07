@@ -11,3 +11,7 @@
 }
 /* 畅言去广告 */
 div#pop_ad {opacity: 0;}
+#feedAv{ margin-top: -250px!important;transform: scale(0);}
+#changyan_floatbar_wrapper{display:none!important}
+#powerby_sohu a{font-size:0!important;line-height:0!important}
+.section-service-w{font-size:0 !important;line-height:0 !important;visible:hidden;}
